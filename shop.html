@@ -2,102 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mystic Packs - Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    /* Reset and General Styles */
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #000000, #0d0d26);
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0a0a0a;
+      color: gold;
+    }
+    a {
+      text-decoration: none;
       color: gold;
     }
 
+    /* Header */
     header {
-      background-color: #000;
-      padding: 20px 40px;
+      background-color: #001f3f;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 3px solid gold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
-
-    header img {
-      height: 50px;
+    .logo-container img {
+      width: 60px;
+      height: auto;
     }
-
-    nav a {
-      color: gold;
-      margin-left: 20px;
-      font-weight: bold;
-      text-decoration: none;
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li {
+      margin-left: 25px;
+      position: relative;
+    }
+    nav ul li a {
       font-size: 16px;
+      font-weight: bold;
+      transition: color 0.2s ease-in-out;
+    }
+    nav ul li a:hover {
+      color: #f4a261;
+    }
+    .cart-count {
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      position: absolute;
+      top: -5px;
+      right: -10px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    /* Search */
+    .search-container {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100%;
+      background-color: #001f3f;
+      padding: 20px;
+      transition: right 0.3s ease-in-out;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.4);
+    }
+    .search-container.open {
+      right: 0;
+    }
+    .search-container input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .search-results {
+      margin-top: 10px;
+    }
+    .search-results a {
+      display: block;
+      color: gold;
+      text-decoration: none;
+      padding: 10px;
+      border-bottom: 1px solid #f4a261;
+    }
+    .search-results a:hover {
+      background-color: #f4a261;
+      color: #001f3f;
     }
 
+    /* Main Content */
     .container {
       padding: 40px;
     }
-
     h1 {
-      color: gold;
       text-align: center;
       margin-bottom: 40px;
     }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    /* Filters */
+    .filters {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-
-    .product-card {
-      background: #001f3f;
-      border: 2px solid gold;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: scale(1.03);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      border: 1px solid gold;
-    }
-
-    .product-name {
-      font-size: 18px;
-      font-weight: bold;
-      color: gold;
-      margin-bottom: 10px;
-    }
-
-    .weight-select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 12px;
-      background-color: #000;
+    .filters select {
+      margin: 0 10px;
+      padding: 10px;
+      background-color: #001f3f;
       color: gold;
       border: 1px solid gold;
       border-radius: 5px;
     }
 
-    .price {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: gold;
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      background-color: #001f3f;
+      padding: 20px;
     }
-
+    .product-card {
+      padding: 20px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .price {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
     .btn {
       background-color: gold;
       color: #001f3f;
@@ -110,83 +162,46 @@
       border-radius: 5px;
       transition: background-color 0.3s;
     }
-
     .btn:hover {
       background-color: #ffd700;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 992px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 576px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <img src="https://images.unsplash.com/photo-1712413705534-3b244c95ff71?auto=format&fit=crop&w=512&q=80" alt="Mystic Packs Logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="cart.html">Cart</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <h1>Booster Packs</h1>
-    <div class="product-grid">
-
-      <!-- Example Product 1 -->
-      <div class="product-card" data-light="554.99" data-medium="874.99" data-heavy="1254.99">
-        <img src="https://m.media-amazon.com/images/I/81PMcgckvKL.jpg" alt="Base Set Booster Pack">
-        <div class="product-name">Base Set Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="medium">Medium</option>
-          <option value="heavy">Heavy</option>
-        </select>
-        <div class="price">$554.99</div>
-        <button class="btn">Add to Cart</button>
-      </div>
-
-      <!-- Example Product 2 -->
-      <div class="product-card" data-light="249.99" data-medium="454.99" data-heavy="759.99">
-        <img src="https://rogerz.dk/cdn/shop/files/Jungleboosterpacks1stedition_512x512.jpg?v=1714675190" alt="Jungle Booster Pack">
-        <div class="product-name">Jungle Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="medium">Medium</option>
-          <option value="heavy">Heavy</option>
-        </select>
-        <div class="price">$249.99</div>
-        <button class="btn">Add to Cart</button>
-      </div>
-
-      <!-- Example Product 3 -->
-      <div class="product-card" data-light="224.99" data-medium="329.99" data-heavy="649.99">
-        <img src="https://rogerz.dk/cdn/shop/files/Fossilboosterpack1st_512x512.jpg?v=1714218229" alt="Fossil Booster Pack (Artwork May Vary)">
-        <div class="product-name">Fossil Booster Pack (Artwork May Vary)</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="medium">Medium</option>
-          <option value="heavy">Heavy</option>
-        </select>
-        <div class="price">$224.99</div>
-        <button class="btn">Add to Cart</button>
-      </div>
-
-      <!-- You can paste more products below... -->
-
+    <div class="logo-container">
+      <img src="https://images.unsplash.com/photo-1712413705534-3b244c95ff71?auto=format&fit=crop&w=512&q=80" alt="Mystic Packs Logo">
     </div>
-  </div>
-
-  <script>
-    function updatePrice(select) {
-      const card = select.closest('.product-card');
-      const priceDisplay = card.querySelector('.price');
-      const weight = select.value;
-      const price = card.dataset[weight];
-
-      if (price) {
-        priceDisplay.textContent = `$${parseFloat(price).toFixed(2)}`;
-      }
-    }
-  </script>
-
-</body>
-</html>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li>
+          <a href="cart.html">Cart</a>
+          <span class="cart-count" id="cart-count">0</
+::contentReference[oaicite:12]{index=12}
+ 
