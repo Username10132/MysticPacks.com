@@ -11,129 +11,105 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #0a0a0a;
-      color: #f0f0f0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
     }
 
     /* Header */
     header {
-      background-color: #001f3f;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background-color: #fff;
       padding: 15px 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-    }
-
-    .logo-container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .logo-container img {
       width: 60px;
       height: auto;
-      margin-right: 15px;
     }
-
-    .logo-container h1 {
-      color: gold;
-      font-size: 24px;
-    }
-
     nav ul {
       display: flex;
       list-style: none;
     }
-
     nav ul li {
       margin-left: 25px;
+      position: relative;
     }
-
     nav ul li a {
-      color: gold;
-      text-decoration: none;
       font-size: 16px;
       font-weight: bold;
       transition: color 0.2s ease-in-out;
     }
-
     nav ul li a:hover {
-      color: #f4a261;
+      color: #0056b3;
     }
-
     .search-icon {
       cursor: pointer;
-      color: gold;
+      color: #007bff;
       font-size: 24px;
       margin-left: 20px;
     }
-
     .search-container {
       position: fixed;
       top: 0;
       right: -100%;
       width: 300px;
       height: 100%;
-      background-color: #001f3f;
+      background-color: #fff;
       padding: 20px;
       transition: right 0.3s ease-in-out;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.4);
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     }
-
     .search-container.open {
       right: 0;
     }
-
     .search-container input {
       width: 100%;
       padding: 10px;
-      border: none;
+      border: 1px solid #ccc;
       border-radius: 5px;
       margin-bottom: 10px;
     }
-
     .search-results {
       margin-top: 10px;
     }
-
     .search-results a {
       display: block;
-      color: gold;
+      color: #007bff;
       text-decoration: none;
       padding: 10px;
-      border-bottom: 1px solid #f4a261;
+      border-bottom: 1px solid #ccc;
     }
-
     .search-results a:hover {
-      background-color: #f4a261;
-      color: #001f3f;
+      background-color: #f4f4f4;
+      color: #0056b3;
     }
 
     /* Banner */
     .banner {
-      background: linear-gradient(to right, #001f3f, #003366);
+      background: linear-gradient(to right, #007bff, #0056b3);
       padding: 60px 30px;
       text-align: center;
-      color: gold;
+      color: #fff;
     }
-
     .banner h2 {
       font-size: 36px;
       margin-bottom: 20px;
     }
-
     .banner p {
       font-size: 18px;
       margin-bottom: 30px;
     }
-
     .banner a button {
-      background-color: gold;
-      color: #0a0a0a;
+      background-color: #fff;
+      color: #007bff;
       padding: 15px 30px;
       border: none;
       font-size: 16px;
@@ -141,100 +117,89 @@
       cursor: pointer;
       font-weight: bold;
     }
-
     .banner a button:hover {
-      background-color: #d4af37;
+      background-color: #f4f4f4;
     }
 
     /* Products */
     .product-section {
       padding: 40px 30px;
     }
-
     .product-section h3 {
       font-size: 28px;
-      color: gold;
       margin-bottom: 20px;
+      color: #333;
     }
-
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
+      gap: 20px;
     }
-
     .product-card {
-      background-color: #002244;
-      border-radius: 10px;
+      background-color: #fff;
+      border-radius: 8px;
       overflow: hidden;
       text-align: center;
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .product-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 5px;
+      margin-bottom: 15px;
     }
-
     .product-card h4 {
-      color: gold;
-      margin-top: 15px;
       font-size: 18px;
+      margin-top: 15px;
+      color: #333;
     }
-
     .product-card p {
       font-size: 14px;
-      color: #ccc;
+      color: #666;
       margin: 10px 0;
     }
-
     .price {
-      color: gold;
-      font-weight: bold;
       font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
     }
-
     .add-to-cart button {
       margin-top: 10px;
       padding: 10px 20px;
-      background-color: gold;
+      background-color: #007bff;
       border: none;
-      color: #000;
+      color: #fff;
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
     }
-
     .add-to-cart button:hover {
-      background-color: #d4af37;
+      background-color: #0056b3;
     }
 
     /* Footer */
     footer {
-      background-color: #001f3f;
+      background-color: #fff;
       text-align: center;
       padding: 30px;
       margin-top: 50px;
-      color: #aaa;
+      color: #666;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     }
-
     footer p {
       margin-bottom: 10px;
     }
-
     footer a {
-      color: gold;
+      color: #007bff;
       text-decoration: none;
       margin: 0 10px;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
-
   </style>
 </head>
 <body>
@@ -267,8 +232,31 @@
   </section>
 
   <section class="product-section">
-    <h3>🔥Trending Products🔥</h3>
+    <h3>🔥 Trending Products 🔥</h3>
     <div class="product-grid">
+      <!-- Example Product 1 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81PMcgckvKL.jpg" alt="Base Set Booster Pack">
+        <h4>Base Set Booster Pack</h4>
+        <p>Relive the classics with random artwork from this nostalgic set.</p>
+        <div class="price">$554.99</div>
+        <div class="add-to-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Example Product 2 -->
+      <div class="product-card">
+        <img src="https://rogerz.dk/cdn/shop/files/Jungleboosterpacks1stedition_512x512.jpg?v=1714675190" alt="Jungle Booster Pack">
+        <h4>Jungle Booster Pack</h4>
+        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
+        <div class="price">$249.99</div>
+        <div class="add-to-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Example Product 3 -->
       <div class="product-card">
         <img src="https://m.media-amazon.com/images/I/61MM+5ttBbL.jpg" alt="XY Evolutions Booster Pack">
         <h4>XY Evolutions Booster Pack</h4>
@@ -279,11 +267,23 @@
         </div>
       </div>
 
+      <!-- Example Product 4 -->
       <div class="product-card">
         <img src="https://www.pokemoncenter.com/images/DAMRoot/High/10004/P10460_100-10096_06.jpg" alt="Scarlet & Violet 151 Tin">
-        <h4>Scarlet & Violet 151 Mini Tin</h4>
+        <h4>Scarlet & Violet 151 Tin</h4>
         <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
         <div class="price">$24.99</div>
+        <div class="add-to-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Example Product 5 -->
+      <div class="product-card">
+        <img src="https://example.com/fossil.jpg" alt="Fossil Booster Pack">
+        <h4>Fossil Booster Pack</h4>
+        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
+        <div class="price">$299.99</div>
         <div class="add-to-cart">
           <button>Add to Cart</button>
         </div>
@@ -333,7 +333,6 @@
 
     document.addEventListener('click', function(event) {
       const searchContainer = document.getElementById('search-container');
-      const searchInput = document.getElementById('search-input');
       const searchIcon = document.querySelector('.search-icon');
 
       if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
