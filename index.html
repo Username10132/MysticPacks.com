@@ -332,6 +332,16 @@
         }
       });
     }
+
+    document.addEventListener('click', function(event) {
+      const searchContainer = document.getElementById('search-container');
+      const searchInput = document.getElementById('search-input');
+      const searchIcon = document.querySelector('.search-icon');
+
+      if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
+        searchContainer.classList.remove('open');
+      }
+    });
   </script>
 </body>
 </html>
