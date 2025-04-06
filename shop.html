@@ -4,38 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - Mystic Packs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Include the styles from index.html here if not already in styles.css */
+    </style>
 </head>
 <body>
+
+<header>
+    <div class="logo-container">
+        <img src="your_logo_url_here" alt="Mystic Packs Logo">
+        <h1>Mystic Packs</h1>
+    </div>
     <nav>
-        <div class="logo">Mystic Packs</div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart</a></li>
         </ul>
     </nav>
+</header>
 
-    <h1>Our Products</h1>
+<section class="banner">
+    <h2>🔥 The Ultimate Pokémon TCG Experience</h2>
+    <p>Shop rare booster packs & exclusive Scarlet and Violet 151 Mini Tins now.</p>
+    <button onclick="window.location.href='shop.html'">Shop Now</button>
+</section>
+
+<section class="product-section">
+    <h3>Our Products</h3>
     <div class="product-grid">
-        <!-- Add product cards here -->
+        <!-- Example product cards -->
+        <div class="product-card">
+            <img src="product_image_url_1" alt="Product 1">
+            <h4>Product 1</h4>
+            <p>Description of Product 1.</p>
+            <div class="price">$X.XX</div>
+            <div class="add-to-cart">
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="product_image_url_2" alt="Product 2">
+            <h4>Product 2</h4>
+            <p>Description of Product 2.</p>
+            <div class="price">$X.XX</div>
+            <div class="add-to-cart">
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <!-- Add more product cards here -->
     </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
+    <p>
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a>
+    </p>
+</footer>
 
-    <script src="scripts.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
-<div class="product-grid">
-      <div class="product-card">
-        <img src="https://www.pokemoncenter.com/images/DAMRoot/High/10004/P10460_100-10096_06.jpg" alt="Scarlet & Violet 151 Tin">
-        <h4>Scarlet & Violet 151 Mini Tin</h4>
-        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
-        <div class="price">$24.99</div>
-        <div class="add-to-cart">
-          <button>Add to Cart</button>
-        </div>
-      </div>
