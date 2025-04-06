@@ -14,22 +14,22 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #0a0a0a;
-      color: gold;
+      background-color: #f4f4f4;
+      color: #333;
     }
     a {
       text-decoration: none;
-      color: gold;
+      color: #007bff;
     }
 
     /* Header */
     header {
-      background-color: #001f3f;
+      background-color: #fff;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .logo-container img {
       width: 60px;
@@ -49,7 +49,7 @@
       transition: color 0.2s ease-in-out;
     }
     nav ul li a:hover {
-      color: #f4a261;
+      color: #0056b3;
     }
     .cart-count {
       background-color: red;
@@ -62,43 +62,6 @@
       right: -10px;
     }
 
-    /* Search */
-    .search-container {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 300px;
-      height: 100%;
-      background-color: #001f3f;
-      padding: 20px;
-      transition: right 0.3s ease-in-out;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.4);
-    }
-    .search-container.open {
-      right: 0;
-    }
-    .search-container input {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    .search-results {
-      margin-top: 10px;
-    }
-    .search-results a {
-      display: block;
-      color: gold;
-      text-decoration: none;
-      padding: 10px;
-      border-bottom: 1px solid #f4a261;
-    }
-    .search-results a:hover {
-      background-color: #f4a261;
-      color: #001f3f;
-    }
-
     /* Main Content */
     .container {
       padding: 40px;
@@ -106,6 +69,7 @@
     h1 {
       text-align: center;
       margin-bottom: 40px;
+      color: #333;
     }
 
     /* Filters */
@@ -117,9 +81,9 @@
     .filters select {
       margin: 0 10px;
       padding: 10px;
-      background-color: #001f3f;
-      color: gold;
-      border: 1px solid gold;
+      background-color: #fff;
+      color: #333;
+      border: 1px solid #ccc;
       border-radius: 5px;
     }
 
@@ -127,32 +91,41 @@
     .product-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 0;
-      background-color: #001f3f;
+      gap: 20px;
+      background-color: #fff;
       padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .product-card {
       padding: 20px;
       text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .product-card img {
       width: 100%;
-      height: 300px;
+      height: auto;
+      max-height: 200px;
       object-fit: cover;
       border-radius: 5px;
+      margin-bottom: 15px;
     }
     .product-name {
       font-size: 18px;
       font-weight: bold;
       margin: 10px 0;
+      color: #333;
     }
     .price {
       font-size: 16px;
       margin-bottom: 10px;
+      color: #333;
     }
     .btn {
-      background-color: gold;
-      color: #001f3f;
+      background-color: #007bff;
+      color: #fff;
       border: none;
       padding: 10px;
       width: 100%;
@@ -163,7 +136,7 @@
       transition: background-color 0.3s;
     }
     .btn:hover {
-      background-color: #ffd700;
+      background-color: #0056b3;
     }
 
     /* Responsive Design */
@@ -222,12 +195,11 @@
 
     <div class="product-grid">
       <!-- Example Product 1 -->
-      <div class="product-card" data-name="Base Set Booster Pack" data-light="554.99" data-medium="874.99" data-heavy="1254.99">
+      <div class="product-card" data-name="Base Set Booster Pack" data-light="554.99" data-heavy="1254.99">
         <img src="https://m.media-amazon.com/images/I/81PMcgckvKL.jpg" alt="Base Set Booster Pack">
         <div class="product-name">Base Set Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$554.99</div>
@@ -235,12 +207,11 @@
       </div>
 
       <!-- Example Product 2 -->
-      <div class="product-card" data-name="Jungle Booster Pack" data-light="249.99" data-medium="454.99" data-heavy="759.99">
+      <div class="product-card" data-name="Jungle Booster Pack" data-light="249.99" data-heavy="759.99">
         <img src="https://rogerz.dk/cdn/shop/files/Jungleboosterpacks1stedition_512x512.jpg?v=1714675190" alt="Jungle Booster Pack">
         <div class="product-name">Jungle Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$249.99</div>
@@ -248,72 +219,66 @@
       </div>
 
       <!-- Add 20 more products here -->
-      <div class="product-card" data-name="Fossil Booster Pack" data-light="299.99" data-medium="499.99" data-heavy="799.99">
+      <div class="product-card" data-name="Fossil Booster Pack" data-light="299.99" data-heavy="799.99">
         <img src="https://example.com/fossil.jpg" alt="Fossil Booster Pack">
         <div class="product-name">Fossil Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$299.99</div>
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
-      <div class="product-card" data-name="Team Rocket Booster Pack" data-light="399.99" data-medium="699.99" data-heavy="999.99">
+      <div class="product-card" data-name="Team Rocket Booster Pack" data-light="399.99" data-heavy="999.99">
         <img src="https://example.com/teamrocket.jpg" alt="Team Rocket Booster Pack">
         <div class="product-name">Team Rocket Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$399.99</div>
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
-      <div class="product-card" data-name="Gym Heroes Booster Pack" data-light="349.99" data-medium="549.99" data-heavy="849.99">
+      <div class="product-card" data-name="Gym Heroes Booster Pack" data-light="349.99" data-heavy="849.99">
         <img src="https://example.com/gymheroes.jpg" alt="Gym Heroes Booster Pack">
         <div class="product-name">Gym Heroes Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$349.99</div>
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
-      <div class="product-card" data-name="Neo Genesis Booster Pack" data-light="449.99" data-medium="749.99" data-heavy="1049.99">
+      <div class="product-card" data-name="Neo Genesis Booster Pack" data-light="449.99" data-heavy="1049.99">
         <img src="https://example.com/neogenesis.jpg" alt="Neo Genesis Booster Pack">
         <div class="product-name">Neo Genesis Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$449.99</div>
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
-      <div class="product-card" data-name="Aquapolis Booster Pack" data-light="549.99" data-medium="849.99" data-heavy="1249.99">
+      <div class="product-card" data-name="Aquapolis Booster Pack" data-light="549.99" data-heavy="1249.99">
         <img src="https://example.com/aquapolis.jpg" alt="Aquapolis Booster Pack">
         <div class="product-name">Aquapolis Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$549.99</div>
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
-      <div class="product-card" data-name="Skyridge Booster Pack" data-light="599.99" data-medium="899.99" data-heavy="1299.99">
+      <div class="product-card" data-name="Skyridge Booster Pack" data-light="599.99" data-heavy="1299.99">
         <img src="https://example.com/skyridge.jpg" alt="Skyridge Booster Pack">
         <div class="product-name">Skyridge Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
-          <option value="medium">Medium</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$599.99</div>
