@@ -158,7 +158,7 @@
         <img src="https://m.media-amazon.com/images/I/61MM+5ttBbL.jpg" alt="Pokémon TCG: XY Evolutions Booster Pack">
         <h4>Pokémon TCG: XY Evolutions Booster Pack (Random Artwork)</h4>
         <p>Relive the classic moments with this nostalgic set.</p>
-        <div class="price" id="price-1">$64.99</div>
+        <div class="price" id="price-1">$94.99</div>
         <div class="pack-options">
           <label for="pack-1">Select Pack Weight:</label>
           <select id="pack-1" onchange="updatePrice(1)">
@@ -172,8 +172,23 @@
         </div>
       </div>
       <!-- Additional Product Cards can be added here -->
-    </div>
-  </div>
+      <div class="product-card">
+        <img src="https://www.pokemoncenter.com/images/DAMRoot/High/10004/P10460_100-10096_06.jpg" alt="Pokémon TCG: Prismatic Evolutions Booster Pack ">
+        <h4>Pokémon TCG: Prismatic Evolutions Booster Pack (Random Artwork)</h4>
+        <p>Relive the classic moments with this nostalgic set.</p>
+        <div class="price" id="price-1">$34.99</div>
+        <div class="pack-options">
+          <label for="pack-1">Select Pack Weight:</label>
+          <select id="pack-1" onchange="updatePrice(1)">
+            <option value="light">Light</option>
+            <option value="medium" selected>Medium</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </div>
+        <div class="add-to-cart">
+          <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+      </div>
 
   <script>
     // Function to update price based on selected pack weight
@@ -182,11 +197,11 @@
       var priceElement = document.getElementById("price-" + id);
       
       if (weight === "light") {
-        priceElement.innerText = "$64.99";
+        priceElement.innerText = "$15.99";
       } else if (weight === "medium") {
-        priceElement.innerText = "$94.99";
+        priceElement.innerText = "$34.99";
       } else if (weight === "heavy") {
-        priceElement.innerText = "$184.99";
+        priceElement.innerText = "$84.99";
       }
     }
 
