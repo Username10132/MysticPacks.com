@@ -65,18 +65,52 @@
       color: #f4a261;
     }
 
-    /* Search */
-    .search-bar {
-      margin: 20px auto;
-      text-align: center;
+    .search-icon {
+      cursor: pointer;
+      color: gold;
+      font-size: 24px;
+      margin-left: 20px;
     }
 
-    .search-bar input {
+    .search-container {
+      position: fixed;
+      top: 0;
+      right: -100%;
       width: 300px;
-      padding: 12px 16px;
-      border-radius: 5px;
+      height: 100%;
+      background-color: #001f3f;
+      padding: 20px;
+      transition: right 0.3s ease-in-out;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.4);
+    }
+
+    .search-container.open {
+      right: 0;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 10px;
       border: none;
-      font-size: 16px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .search-results {
+      margin-top: 10px;
+    }
+
+    .search-results a {
+      display: block;
+      color: gold;
+      text-decoration: none;
+      padding: 10px;
+      border-bottom: 1px solid #f4a261;
+    }
+
+    .search-results a:hover {
+      background-color: #f4a261;
+      color: #001f3f;
     }
 
     /* Banner */
@@ -216,12 +250,14 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Cart</a></li>
+        <li><span class="search-icon" onclick="toggleSearch()">🔍</span></li>
       </ul>
     </nav>
   </header>
 
-  <div class="search-bar">
-    <input type="text" placeholder="Search Pokémon packs...">
+  <div class="search-container" id="search-container">
+    <input type="text" placeholder="Search Pokémon packs..." id="search-input" oninput="searchProducts()">
+    <div class="search-results" id="search-results"></div>
   </div>
 
   <section class="banner">
@@ -265,5 +301,37 @@
     </p>
   </footer>
 
+  <script>
+    function toggleSearch() {
+      const searchContainer = document.getElementById('search-container');
+      searchContainer.classList.toggle('open');
+    }
+
+    async function searchProducts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const resultsContainer = document.getElementById('search-results');
+
+      if (query.length < 3) {
+        resultsContainer.innerHTML = '';
+        return;
+      }
+
+      const response = await fetch('shop.html');
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const products = doc.querySelectorAll('.product-card');
+
+      resultsContainer.innerHTML = '';
+      products.forEach(product => {
+        if (product.textContent.toLowerCase().includes(query)) {
+          const productLink = document.createElement('a');
+          productLink.href = 'shop.html';
+          productLink.textContent = product.querySelector('h4').textContent;
+          resultsContainer.appendChild(productLink);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
