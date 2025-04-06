@@ -1,647 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystic Packs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #1a1a1a;
+      color: #f4f4f9;
+    }
+    /* Header */
+    header {
+      background-color: #003366; /* Dark Blue */
+      padding: 20px;
+      text-align: center;
+      color: gold;
+    }
+    header h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 36px;
+    }
+    /* Navigation Bar */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    nav ul li {
+      margin: 0 20px;
+    }
+    nav ul li a {
+      color: gold;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    /* Search Bar */
+    .search-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    /* Product Sections */
+    .product-section {
+      margin: 20px 0;
+      padding: 0 20px;
+    }
+    .product-section h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #f4f4f9;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background-color: #003366; /* Dark Blue */
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-card h4 {
+      font-size: 20px;
+      margin-top: 15px;
+      color: gold;
+    }
+    .product-card p {
+      color: #777;
+      font-size: 14px;
+    }
+    .price {
+      font-size: 18px;
+      color: gold;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .pack-options {
+      margin-top: 10px;
+    }
+    .pack-options label {
+      margin-right: 10px;
+      color: gold;
+    }
+    .pack-options select {
+      padding: 5px;
+    }
+    .add-to-cart {
+      margin-top: 15px;
+    }
+    .add-to-cart button {
+      padding: 10px 20px;
+      background-color: #f4a261; /* Gold */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .add-to-cart button:hover {
+      background-color: #d38f4b;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h1>Welcome to our website!</h1>
-            <p>This is a sample website created using HTML, CSS, and JavaScript.</p>
-        </section>
-        <section>
-            <h2>Our Mission</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Team</h2>
-            <ul>
-                <li>John Doe - CEO</li>
-                <li>Jane Doe - CTO</li>
-                <li>Bob Smith - Marketing Manager</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Services</h2>
-            <ul>
-                <li>Web Development</li>
-                <li>Mobile App Development</li>
-                <li>SEO and Digital Marketing</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Portfolio</h2>
-            <ul>
-                <li><a href="#">Project 1</a></li>
-                <li><a href="#">Project 2</a></li>
-                <li><a href="#">Project 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Get in Touch</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea><br><br>
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-        <section>
-            <h2>Our Blog</h2>
-            <ul>
-                <li><a href="#">Article 1</a></li>
-                <li><a href="#">Article 2</a></li>
-                <li><a href="#">Article 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Testimonials</h2>
-            <ul>
-                <li>"Lorem ipsum dolor sit amet, consectetur adipiscing elit." - John Doe</li>
-                <li>"Sed sit amet nulla auctor, vestibulum magna sed, convallis ex." - Jane Doe</li>
-                <li>"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." - Bob Smith</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Partners</h2>
-            <ul>
-                <li><a href="#">Partner 1</a></li>
-                <li><a href="#">Partner 2</a></li>
-                <li><a href="#">Partner 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our FAQs</h2>
-            <ul>
-                <li>Q: What is your company's mission?</li>
-                <li>A: Our mission is to provide high-quality services to our clients.</li>
-                <li>Q: How do I contact your company?</li>
-                <li>A: You can contact us through our website or by phone/email.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Terms and Conditions</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Privacy Policy</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Disclaimer</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Sitemap</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our RSS Feed</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Social Media</h2>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Newsletter</h2>
-            <form>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
-                <input type="submit" value="Subscribe">
-            </form>
-        </section>
-        <section>
-            <h2>Our Search</h2>
-            <form>
-                <label for="search">Search:</label>
-                <input type="search" id="search" name="search"><br><br>
-                <input type="submit" value="Search">
-            </form>
-        </section>
-        <section>
-            <h2>Our Archives</h2>
-            <ul>
-                <li><a href="#">Archive 1</a></li>
-                <li><a href="#">Archive 2</a></li>
-                <li><a href="#">Archive 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Categories</h2>
-            <ul>
-                <li><a href="#">Category 1</a></li>
-                <li><a href="#">Category 2</a></li>
-                <li><a href="#">Category 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Tags</h2>
-            <ul>
-                <li><a href="#">Tag 1</a></li>
-                <li><a href="#">Tag 2</a></li>
-                <li><a href="#">Tag 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Comments</h2>
-            <ul>
-                <li>"Lorem ipsum dolor sit amet, consectetur adipiscing elit." - John Doe</li>
-                <li>"Sed sit amet nulla auctor, vestibulum magna sed, convallis ex." - Jane Doe</li>
-                <li>"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." - Bob Smith</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Trackbacks</h2>
-            <ul>
-                <li><a href="#">Trackback 1</a></li>
-                <li><a href="#">Trackback 2</a></li>
-                <li><a href="#">Trackback 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our Pingbacks</h2>
-            <ul>
-                <li><a href="#">Pingback 1</a></li>
-                <li><a href="#">Pingback 2</a></li>
-                <li><a href="#">Pingback 3</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Our 404 Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our 500 Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Maintenance Mode</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Coming Soon Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Under Construction Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Offline Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Error Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Forbidden Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Gateway Timeout Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our HTTP Version Not Supported Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Internal Server Error Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Length Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Method Not Allowed Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Not Acceptable Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Not Found Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Not Implemented Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Overload Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Payment Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Proxy Authentication Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Request Entity Too Large Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Request Timeout Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Service Unavailable Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Switching Protocols Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Upgrade Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our URI Too Long Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Unsupported Media Type Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Use Proxy Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Variant Also Negotiates Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Bad Gateway Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Bad Request Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Conflict Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Expectation Failed Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Gone Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our HTTP/1.1 Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Insufficient Storage Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Length Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Locked Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Method Not Allowed Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Moved Permanently Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Moved Temporarily Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Multi-Status Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Multiple Choices Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Network Authentication Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Non-Authoritative Information Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Not Acceptable Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Not Found Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Not Implemented Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Not Modified Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our OK Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Partial Content Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Payment Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Permanent Redirect Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Precondition Failed Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Precondition Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Proxy Authentication Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Request Entity Too Large Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Request Header Fields Too Large Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Request Timeout Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Reset Content Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our See Other Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Service Unavailable Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Switching Protocols Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Temporary Redirect Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Too Many Requests Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Unauthorized Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Unprocessable Entity Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Unsupported Media Type Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Upgrade Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Use Proxy Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Variant Also Negotiates Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Bad Gateway Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Bad Request Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Conflict Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Expectation Failed Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Gone Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our HTTP/1.1 Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Insufficient Storage Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Length Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Locked Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Method Not Allowed Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Moved Permanently Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Moved Temporarily Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Multi-Status Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Multiple Choices Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Network Authentication Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Non-Authoritative Information Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Not Acceptable Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Not Found Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Not Implemented Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Not Modified Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our OK Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Partial Content Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Payment Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Permanent Redirect Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Precondition Failed Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Precondition Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Proxy Authentication Required Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Request Entity Too Large Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Request Header Fields Too Large Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Request Timeout Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Reset Content Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our See Other Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Service Unavailable Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Switching Protocols Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Temporary Redirect Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Too Many Requests Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Unauthorized Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Unprocessable Entity Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Unsupported Media Type Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Upgrade Required Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-        <section>
-            <h2>Our Use Proxy Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Our Variant Also Negotiates Page</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Our Website</p>
-    </footer>
-    <script src="script.js"></script>
+
+  <!-- Header -->
+  <header>
+    <h1>Mystic Packs</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search for Pokémon packs...">
+    </div>
+  </header>
+
+  <!-- Product Sections -->
+  <div class="product-section">
+    <h3>Featured Products</h3>
+    <div class="product-grid">
+      <!-- Example Product Card -->
+      <div class="product-card">
+        <img src="path_to_image.jpg" alt="Pokémon TCG: XY Evolutions Booster Pack">
+        <h4>Pokémon TCG: XY Evolutions Booster Pack</h4>
+        <p>Relive the classic moments with this nostalgic set.</p>
+        <div class="price" id="price-1">$4.00</div>
+        <div class="pack-options">
+          <label for="pack-1">Select Pack Weight:</label>
+          <select id="pack-1" onchange="updatePrice(1)">
+            <option value="light">Light</option>
+            <option value="medium" selected>Medium</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </div>
+        <div class="add-to-cart">
+          <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Additional Product Cards can be added here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to update price based on selected pack weight
+    function updatePrice(id) {
+      var weight = document.getElementById("pack-" + id).value;
+      var priceElement = document.getElementById("price-" + id);
+      
+      if (weight === "light") {
+        priceElement.innerText = "$4.00";
+      } else if (weight === "medium") {
+        priceElement.innerText = "$5.00";
+      } else if (weight === "heavy") {
+        priceElement.innerText = "$6.00";
+      }
+    }
+
+    // Function to add the product to the cart (For now, just logs to console)
+    function addToCart(id) {
+      console.log("Product " + id + " added to cart!");
+    }
+  </script>
+
 </body>
 </html>
