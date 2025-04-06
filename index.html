@@ -1,49 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mystic Packs</title>
-    <link href="styles.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mystic Packs | Home</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Mystic Packs</div>
     <nav>
-        <div class="logo">Mystic Packs</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><input type="text" placeholder="Search..." class="search-bar" /></li>
+      </ul>
     </nav>
-    
-    <!-- Main Hero Section -->
-    <header class="hero">
-        <h1>Welcome to Mystic Packs</h1>
-        <p>Get the best Pokémon packs available!</p>
-        <button><a href="shop.html">Shop Now</a></button>
-    </header>
+  </header>
 
-    <!-- Featured Products Section -->
-    <section class="featured">
-        <h2>Featured Packs</h2>
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="product1.jpg" alt="Pokémon Booster Pack">
-                <h3>XY Evolutions</h3>
-                <p>$4.00</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Add more product cards here -->
-        </div>
-    </section>
+  <section class="hero">
+    <img src="assets/images/featured-pack.jpg" alt="Trending Pack" />
+    <h1>Explore Rare Pokémon Booster Packs</h1>
+    <p>Discover Light, Medium, and Heavy Packs. Your next pull might be 🔥!</p>
+    <a href="products.html" class="btn">Shop Now</a>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
-    </footer>
+  <section class="highlight">
+    <h2>Trending Now</h2>
+    <div class="product-row">
+      <!-- You can copy product cards here -->
+    </div>
+  </section>
 
-    <script src="scripts.js"></script>
+  <footer>
+    <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
+  </footer>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
