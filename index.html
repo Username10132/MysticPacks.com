@@ -1,218 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mystic Packs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mystic Packs | Pokémon TCG Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #1a1a1a;
-      color: #f4f4f9;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0a0a0a;
+      color: #f0f0f0;
     }
+
     /* Header */
     header {
-      background-color: #003366; /* Dark Blue */
-      padding: 20px;
-      text-align: center;
-      color: gold;
-    }
-    header h1 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 36px;
-    }
-    /* Navigation Bar */
-    nav ul {
-      list-style: none;
-      padding: 10;
+      background-color: #001f3f;
       display: flex;
-      justify-content: center;
-      margin-top: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      width: 60px;
+      height: auto;
+      margin-right: 15px;
+    }
+
+    .logo-container h1 {
+      color: gold;
+      font-size: 24px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
     nav ul li {
-      margin: 0 20px;
+      margin-left: 25px;
     }
+
     nav ul li a {
       color: gold;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
+      transition: color 0.2s ease-in-out;
     }
+
     nav ul li a:hover {
-      text-decoration: underline;
+      color: #f4a261;
     }
-    /* Search Bar */
+
+    /* Search */
     .search-bar {
-      margin-top: 20px;
-      display: flex;
-      justify-content: right;
+      margin: 20px auto;
+      text-align: center;
     }
+
     .search-bar input {
-      padding: 15px;
       width: 300px;
+      padding: 12px 16px;
       border-radius: 5px;
       border: none;
       font-size: 16px;
     }
-    /* Product Sections */
+
+    /* Banner */
+    .banner {
+      background: linear-gradient(to right, #001f3f, #003366);
+      padding: 60px 30px;
+      text-align: center;
+      color: gold;
+    }
+
+    .banner h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .banner p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .banner button {
+      background-color: gold;
+      color: #0a0a0a;
+      padding: 15px 30px;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .banner button:hover {
+      background-color: #d4af37;
+    }
+
+    /* Products */
     .product-section {
-      margin: 20px 0;
-      padding: 0 20px;
+      padding: 40px 30px;
     }
+
     .product-section h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #f4f4f9;
+      font-size: 28px;
+      color: gold;
+      margin-bottom: 20px;
     }
+
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 30px;
     }
+
     .product-card {
-      background-color: #003366; /* Dark Blue */
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      background-color: #002244;
+      border-radius: 10px;
+      overflow: hidden;
       text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
+
     .product-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 5px;
     }
+
     .product-card h4 {
-      font-size: 20px;
-      margin-top: 15px;
       color: gold;
-    }
-    .product-card p {
-      color: #777;
-      font-size: 14px;
-    }
-    .price {
+      margin-top: 15px;
       font-size: 18px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin: 10px 0;
+    }
+
+    .price {
       color: gold;
       font-weight: bold;
-      margin-top: 10px;
+      font-size: 18px;
     }
-    .pack-options {
-      margin-top: 10px;
-    }
-    .pack-options label {
-      margin-right: 10px;
-      color: gold;
-    }
-    .pack-options select {
-      padding: 5px;
-    }
-    .add-to-cart {
-      margin-top: 15px;
-    }
+
     .add-to-cart button {
+      margin-top: 10px;
       padding: 10px 20px;
-      background-color: #f4a261; /* Gold */
-      color: white;
+      background-color: gold;
       border: none;
+      color: #000;
+      font-weight: bold;
       border-radius: 5px;
-      font-size: 16px;
       cursor: pointer;
     }
+
     .add-to-cart button:hover {
-      background-color: #d38f4b;
+      background-color: #d4af37;
     }
+
+    /* Footer */
+    footer {
+      background-color: #001f3f;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      color: #aaa;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
-  <!-- Header --> 
-   <header>
+
+  <header>
+    <div class="logo-container">
+      <img src="https://sdmntpreastus2.oaiusercontent.com/files/00000000-7470-51f6-a8bb-05b8bd5ee867/raw?se=2025-04-06T17%3A13%3A27Z&sp=r&sv=2024-08-04&sr=b&scid=3c109f2c-9891-5bc7-a7ab-ce26ee23c29a&skoid=a47cd303-16a2-427e-8efb-2ce406116005&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-06T07%3A08%3A47Z&ske=2025-04-07T07%3A08%3A47Z&sks=b&skv=2024-08-04&sig=CMYuj6gPgPnOZKdnVJh2GVUXPIfA3J/OOyhf7YdRf1I%3D" alt="Mystic Packs Logo">
+      <h1>Mystic Packs</h1>
+    </div>
     <nav>
       <ul>
-        <img src="https://sdmntpreastus2.oaiusercontent.com/files/00000000-7470-51f6-a8bb-05b8bd5ee867/raw?se=2025-04-06T17%3A13%3A27Z&sp=r&sv=2024-08-04&sr=b&scid=3c109f2c-9891-5bc7-a7ab-ce26ee23c29a&skoid=a47cd303-16a2-427e-8efb-2ce406116005&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-06T07%3A08%3A47Z&ske=2025-04-07T07%3A08%3A47Z&sks=b&skv=2024-08-04&sig=CMYuj6gPgPnOZKdnVJh2GVUXPIfA3J/OOyhf7YdRf1I%3D" 
-        
-          
-          
-          <li><a href="#">Home</a></li> 
-        <li><a href="#">Products</a></li> 
-        <li><a href="#">About Us</a></li> 
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
+        <li><a href="#">Cart</a></li>
       </ul>
     </nav>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search for Pokémon packs...">
-    </div>
   </header>
 
-  <!-- Product Sections -->
-  <div class="product-section">
-    <h3>🔥Trending Products🔥</h3>
+  <div class="search-bar">
+    <input type="text" placeholder="Search Pokémon packs...">
+  </div>
+
+  <section class="banner">
+    <h2>🔥 The Ultimate Pokémon TCG Experience</h2>
+    <p>Shop rare booster packs & exclusive Scarlet and Violet 151 Mini Tins now.</p>
+    <button>Shop Now</button>
+  </section>
+
+  <section class="product-section">
+    <h3>Featured Products</h3>
     <div class="product-grid">
-      <!-- Example Product Card -->
       <div class="product-card">
-        <img src="https://m.media-amazon.com/images/I/61MM+5ttBbL.jpg" alt="Pokémon TCG: XY Evolutions Booster Pack">
-        <h4>Pokémon TCG: XY Evolutions Booster Pack (Random Artwork)</h4>
-        <p>Relive the classic moments with this nostalgic set.</p>
-        <div class="price" id="price-1">$94.99</div>
-        <div class="pack-options">
-          <label for="pack-1">Select Pack Weight:</label>
-          <select id="pack-1" onchange="updatePrice(1)">
-            <option value="light">Light</option>
-            <option value="medium" selected>Medium</option>
-            <option value="heavy">Heavy</option>
-          </select>
-        </div>
+        <img src="https://m.media-amazon.com/images/I/61MM+5ttBbL.jpg" alt="XY Evolutions Booster Pack">
+        <h4>XY Evolutions Booster Pack</h4>
+        <p>Relive the classics with random artwork from this nostalgic set.</p>
+        <div class="price">$94.99</div>
         <div class="add-to-cart">
-          <button onclick="addToCart(1)">Add to Cart</button>
-        </div>
-      </div>
-      <!-- Additional Product Cards can be added here -->
-      <div class="product-card">
-        <img src="https://www.pokemoncenter.com/images/DAMRoot/High/10004/P10460_100-10096_06.jpg" alt="Pokémon TCG: Prismatic Evolutions Booster Pack ">
-        <h4>Pokémon TCG: Prismatic Evolutions Booster Pack (Random Artwork)</h4>
-        <p>Relive the classic moments with this nostalgic set.</p>
-        <div class="price" id="price-1">$34.99</div>
-        <div class="pack-options">
-          <label for="pack-1">Select Pack Weight:</label>
-          <select id="pack-1" onchange="updatePrice(1)">
-            <option value="light">Light</option>
-            <option value="medium" selected>Medium</option>
-            <option value="heavy">Heavy</option>
-          </select>
-        </div>
-        <div class="add-to-cart">
-          <button onclick="addToCart(1)">Add to Cart</button>
+          <button>Add to Cart</button>
         </div>
       </div>
 
-  <script>
-    // Function to update price based on selected pack weight
-    function updatePrice(id) {
-      var weight = document.getElementById("pack-" + id).value;
-      var priceElement = document.getElementById("price-" + id);
-      
-      if (weight === "light") {
-        priceElement.innerText = "$64.99";
-      } else if (weight === "medium") {
-        priceElement.innerText = "$94.99";
-      } else if (weight === "heavy") {
-        priceElement.innerText = "$184.99";
-      }
-    }
+      <div class="product-card">
+        <img src="https://www.pokemoncenter.com/images/DAMRoot/High/10004/P10460_100-10096_06.jpg" alt="Scarlet & Violet 151 Tin">
+        <h4>Scarlet & Violet 151 Mini Tin</h4>
+        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
+        <div class="price">$24.99</div>
+        <div class="add-to-cart">
+          <button>Add to Cart</button>
+        </div>
+      </div>
 
-    // Function to add the product to the cart (For now, just logs to console)
-    function addToCart(id) {
-      console.log("Product " + id + " added to cart!");
-    }
-  </script>
+      <!-- Add more cards here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a>
+    </p>
+  </footer>
 
 </body>
 </html>
-
