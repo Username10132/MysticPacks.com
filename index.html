@@ -50,6 +50,16 @@
     nav ul li a:hover {
       color: #0056b3;
     }
+    .cart-count {
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      position: absolute;
+      top: -5px;
+      right: -10px;
+    }
     .search-icon {
       cursor: pointer;
       color: #007bff;
@@ -212,7 +222,10 @@
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
-        <li><a href="#">Cart</a></li>
+        <li>
+          <a href="cart.html">Cart</a>
+          <span class="cart-count" id="cart-count">0</span>
+        </li>
         <li><span class="search-icon" onclick="toggleSearch()">🔍</span></li>
       </ul>
     </nav>
@@ -241,7 +254,7 @@
         <p>Relive the classics with random artwork from this nostalgic set.</p>
         <div class="price">$554.99</div>
         <div class="add-to-cart">
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -252,7 +265,7 @@
         <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
         <div class="price">$249.99</div>
         <div class="add-to-cart">
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -263,7 +276,7 @@
         <p>Relive the classics with random artwork from this nostalgic set.</p>
         <div class="price">$94.99</div>
         <div class="add-to-cart">
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -274,7 +287,7 @@
         <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
         <div class="price">$24.99</div>
         <div class="add-to-cart">
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -285,7 +298,7 @@
         <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
         <div class="price">$299.99</div>
         <div class="add-to-cart">
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -338,6 +351,19 @@
       if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
         searchContainer.classList.remove('open');
       }
+    });
+
+    function addToCart() {
+      let cartCount = localStorage.getItem('cartCount') || 0;
+      cartCount++;
+      localStorage.setItem('cartCount', cartCount);
+      document.getElementById('cart-count').textContent = cartCount;
+      alert('Item added to cart');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartCount = localStorage.getItem('cartCount') || 0;
+      document.getElementById('cart-count').textContent = cartCount;
     });
   </script>
 </body>
