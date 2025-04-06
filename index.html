@@ -131,7 +131,7 @@
       margin-bottom: 30px;
     }
 
-    .banner button {
+    .banner a button {
       background-color: gold;
       color: #0a0a0a;
       padding: 15px 30px;
@@ -142,7 +142,7 @@
       font-weight: bold;
     }
 
-    .banner button:hover {
+    .banner a button:hover {
       background-color: #d4af37;
     }
 
@@ -248,7 +248,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="#">Cart</a></li>
-        <li><span class="search-icon" onclick="toggleSearch()">🔍</i></span></li>
+        <li><span class="search-icon" onclick="toggleSearch()">🔍</span></li>
       </ul>
     </nav>
   </header>
@@ -261,7 +261,9 @@
   <section class="banner">
     <h2>🔥 The Ultimate Pokémon TCG Experience</h2>
     <p>Shop rare booster packs & exclusive Scarlet and Violet 151 Mini Tins now.</p>
-    <button>Shop Now</button>
+    <a href="shop.html">
+      <button>Shop Now</button>
+    </a>
   </section>
 
   <section class="product-section">
@@ -286,8 +288,6 @@
           <button>Add to Cart</button>
         </div>
       </div>
-
-      <!-- Add more cards here -->
     </div>
   </section>
 
