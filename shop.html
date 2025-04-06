@@ -5,17 +5,19 @@
   <title>Mystic Packs - Shop</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #000000, #0d0d26);
+      color: gold;
     }
 
     header {
-      background: #000;
-      padding: 20px;
+      background-color: #000;
+      padding: 20px 40px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid gold;
     }
 
     header img {
@@ -23,28 +25,44 @@
     }
 
     nav a {
-      color: white;
+      color: gold;
       margin-left: 20px;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      padding: 30px;
+      padding: 40px;
+    }
+
+    h1 {
+      color: gold;
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
 
     .product-card {
-      background: white;
+      background: #001f3f;
+      border: 2px solid gold;
       border-radius: 10px;
       padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
     }
 
     .product-card img {
@@ -52,114 +70,123 @@
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid gold;
     }
 
     .product-name {
       font-size: 18px;
       font-weight: bold;
-      margin: 10px 0;
+      color: gold;
+      margin-bottom: 10px;
     }
 
     .weight-select {
       width: 100%;
       padding: 8px;
-      margin: 10px 0;
+      margin-bottom: 12px;
+      background-color: #000;
+      color: gold;
+      border: 1px solid gold;
+      border-radius: 5px;
     }
 
     .price {
-      font-size: 18px;
-      color: #28a745;
+      font-size: 20px;
       font-weight: bold;
+      margin-bottom: 10px;
+      color: gold;
     }
 
     .btn {
-      background-color: #007bff;
-      color: white;
+      background-color: gold;
+      color: #001f3f;
       border: none;
       padding: 10px;
       width: 100%;
       font-size: 16px;
       cursor: pointer;
+      font-weight: bold;
       border-radius: 5px;
+      transition: background-color 0.3s;
     }
 
     .btn:hover {
-      background-color: #0056b3;
+      background-color: #ffd700;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="https://images.unsplash.com/photo-1712413705534-3b244c95ff71?auto=format&fit=crop&w=512&q=80" alt="Mystic Packs Logo">
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart</a>
-  </nav>
-</header>
+  <header>
+    <img src="https://images.unsplash.com/photo-1712413705534-3b244c95ff71?auto=format&fit=crop&w=512&q=80" alt="Mystic Packs Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
 
-<div class="container">
-  <h1>Shop All Booster Packs</h1>
+  <div class="container">
+    <h1>Booster Packs</h1>
+    <div class="product-grid">
 
-  <div class="product-grid">
+      <!-- Example Product 1 -->
+      <div class="product-card" data-light="24.99" data-medium="39.99" data-heavy="64.99">
+        <img src="https://images.pokemontcg.io/base1/1.png" alt="Base Set Booster">
+        <div class="product-name">Base Set Booster</div>
+        <select class="weight-select" onchange="updatePrice(this)">
+          <option value="light">Light</option>
+          <option value="medium">Medium</option>
+          <option value="heavy">Heavy</option>
+        </select>
+        <div class="price">$24.99</div>
+        <button class="btn">Add to Cart</button>
+      </div>
 
-    <!-- Base Set -->
-    <div class="product-card" data-light="24.99" data-medium="39.99" data-heavy="64.99">
-      <img src="https://images.pokemontcg.io/base1/1.png" alt="Base Set Booster">
-      <div class="product-name">Base Set Booster</div>
-      <select class="weight-select" onchange="updatePrice(this)">
-        <option value="light">Light</option>
-        <option value="medium">Medium</option>
-        <option value="heavy">Heavy</option>
-      </select>
-      <div class="price">$24.99</div>
-      <button class="btn">Add to Cart</button>
+      <!-- Example Product 2 -->
+      <div class="product-card" data-light="19.99" data-medium="34.99" data-heavy="59.99">
+        <img src="https://images.pokemontcg.io/base2/1.png" alt="Jungle Booster">
+        <div class="product-name">Jungle Booster</div>
+        <select class="weight-select" onchange="updatePrice(this)">
+          <option value="light">Light</option>
+          <option value="medium">Medium</option>
+          <option value="heavy">Heavy</option>
+        </select>
+        <div class="price">$19.99</div>
+        <button class="btn">Add to Cart</button>
+      </div>
+
+      <!-- Example Product 3 -->
+      <div class="product-card" data-light="17.99" data-medium="29.99" data-heavy="49.99">
+        <img src="https://images.pokemontcg.io/fossil/1.png" alt="Fossil Booster">
+        <div class="product-name">Fossil Booster</div>
+        <select class="weight-select" onchange="updatePrice(this)">
+          <option value="light">Light</option>
+          <option value="medium">Medium</option>
+          <option value="heavy">Heavy</option>
+        </select>
+        <div class="price">$17.99</div>
+        <button class="btn">Add to Cart</button>
+      </div>
+
+      <!-- You can paste more products below... -->
+
     </div>
-
-    <!-- Jungle -->
-    <div class="product-card" data-light="19.99" data-medium="34.99" data-heavy="59.99">
-      <img src="https://images.pokemontcg.io/base2/1.png" alt="Jungle Booster">
-      <div class="product-name">Jungle Booster</div>
-      <select class="weight-select" onchange="updatePrice(this)">
-        <option value="light">Light</option>
-        <option value="medium">Medium</option>
-        <option value="heavy">Heavy</option>
-      </select>
-      <div class="price">$19.99</div>
-      <button class="btn">Add to Cart</button>
-    </div>
-
-    <!-- Fossil -->
-    <div class="product-card" data-light="17.99" data-medium="29.99" data-heavy="49.99">
-      <img src="https://images.pokemontcg.io/fossil/1.png" alt="Fossil Booster">
-      <div class="product-name">Fossil Booster</div>
-      <select class="weight-select" onchange="updatePrice(this)">
-        <option value="light">Light</option>
-        <option value="medium">Medium</option>
-        <option value="heavy">Heavy</option>
-      </select>
-      <div class="price">$17.99</div>
-      <button class="btn">Add to Cart</button>
-    </div>
-
-    <!-- More packs can go here! -->
-
   </div>
-</div>
 
-<script>
-  function updatePrice(select) {
-    const card = select.closest('.product-card');
-    const priceDisplay = card.querySelector('.price');
-    const weight = select.value;
-    const price = card.dataset[weight];
+  <script>
+    function updatePrice(select) {
+      const card = select.closest('.product-card');
+      const priceDisplay = card.querySelector('.price');
+      const weight = select.value;
+      const price = card.dataset[weight];
 
-    if (price) {
-      priceDisplay.textContent = `$${parseFloat(price).toFixed(2)}`;
+      if (price) {
+        priceDisplay.textContent = `$${parseFloat(price).toFixed(2)}`;
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
