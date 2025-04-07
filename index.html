@@ -368,3 +368,16 @@
   </script>
 </body>
 </html>
+<script>
+  function addToCart() {
+    let cartCount = localStorage.getItem('cartCount') || 0;
+    cartCount++;
+    localStorage.setItem('cartCount', cartCount);
+    document.getElementById('cart-count').textContent = cartCount;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const cartCount = localStorage.getItem('cartCount') || 0;
+    document.getElementById('cart-count').textContent = cartCount;
+  });
+</script>
