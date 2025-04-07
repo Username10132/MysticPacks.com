@@ -6,22 +6,14 @@
   <title>Mystic Packs - Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Style for the weight and quantity container */
-    .weight-quantity-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
+    :root {
+      --primary-color: #001f3f;
+      --accent-color: #FFD700;
+      --background-color: #000000;
+      --text-color: #ffffff;
+      --secondary-text-color: #FFD700;
     }
 
-    .weight-quantity-container select,
-    .weight-quantity-container input {
-      margin: 0 5px;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    /* Reset and General Styles */
     * {
       margin: 0;
       padding: 0;
@@ -29,22 +21,25 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
     a {
       text-decoration: none;
-      color: #007bff;
+      color: var(--accent-color);
     }
 
     /* Header */
     header {
-      background-color: #fff;
+      background-color: var(--primary-color);
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     .logo-container img {
       height: 60px;
@@ -63,11 +58,11 @@
       transition: color 0.2s ease-in-out;
     }
     nav ul li a:hover {
-      color: #0056b3;
+      color: var(--secondary-text-color);
     }
     .cart-count {
-      background-color: red;
-      color: white;
+      background-color: var(--accent-color);
+      color: var(--background-color);
       border-radius: 50%;
       padding: 2px 6px;
       font-size: 12px;
@@ -83,16 +78,18 @@
 
     .search-bar input {
       padding: 5px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--secondary-text-color);
       border-radius: 5px;
       margin-right: 5px;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
 
     .search-bar button {
       padding: 5px 10px;
       border: none;
-      background-color: #007bff;
-      color: white;
+      background-color: var(--accent-color);
+      color: var(--background-color);
       border-radius: 5px;
       cursor: pointer;
     }
@@ -104,7 +101,7 @@
     h1 {
       text-align: center;
       margin-bottom: 40px;
-      color: #333;
+      color: var(--text-color);
     }
 
     /* Filters */
@@ -116,18 +113,18 @@
     .filters select {
       margin: 0 10px;
       padding: 10px;
-      background-color: #fff;
-      color: #333;
-      border: 1px solid #ccc;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: 1px solid var(--secondary-text-color);
       border-radius: 5px;
     }
 
     /* Product Grid */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
-      background-color: #fff;
+      background-color: var(--background-color);
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -135,14 +132,17 @@
     .product-card {
       padding: 20px;
       text-align: center;
-      background-color: #fff;
+      background-color: var(--primary-color);
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
     }
     .product-card img {
       width: 100%;
-      height: auto;
-      max-height: 200px;
+      height: 300px;
       object-fit: contain;
       border-radius: 5px;
       margin-bottom: 15px;
@@ -151,187 +151,15 @@
       font-size: 16px;
       font-weight: bold;
       margin: 10px 0;
-      color: #333;
+      color: var(--text-color);
     }
     .price {
       font-size: 14px;
       margin-bottom: 10px;
-      color: #333;
+      color: var(--text-color);
     }
     .quantity-input {
       width: 50px;
       margin-bottom: 10px;
     }
     .btn {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      font-size: 14px;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    .btn:hover {
-      background-color: #0056b3;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-      .product-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    @media (max-width: 992px) {
-      .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    @media (max-width: 768px) {
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 576px) {
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header>
-    <div class="logo-container">
-      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo" style="height: 60px;">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="cart.html">Cart</a><span class="cart-count" id="cart-count">0</span></li>
-      </ul>
-    </nav>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search products...">
-      <button onclick="searchProducts()">Search</button>
-    </div>
-  </header>
-
-  <div class="container">
-    <h1>Our Products</h1>
-    <div class="filters">
-      <select id="sort-select" onchange="sortProducts()">
-        <option value="">Sort by</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name-asc">Name: A to Z</option>
-        <option value="name-desc">Name: Z to A</option>
-      </select>
-    </div>
-
-    <div class="product-grid" id="product-grid">
-      <!-- Example Product 1 -->
-      <div class="product-card" data-name="Scarlet and Violet: 151 Booster Pack" data-normal="11.99" data-heavy="44.99">
-        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="Scarlet and Violet: 151 Booster Pack">
-        <div class="product-name">Scarlet and Violet: 151 Booster Pack</div>
-        <div class="weight-quantity-container">
-          <select class="weight-select" onchange="updatePrice(this)">
-            <option value="normal">Normal (Unweighted)</option>
-            <option value="heavy">Heavy</option>
-          </select>
-          <input type="number" min="1" value="1" class="quantity-input">
-        </div>
-        <div class="price">$11.99</div>
-        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-
-      <!-- Example Product 2 -->
-      <div class="product-card" data-name="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)" data-normal="17.99" data-heavy="54.99">
-        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)">
-        <div class="product-name">Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)</div>
-        <div class="weight-quantity-container">
-          <select class="weight-select" onchange="updatePrice(this)">
-            <option value="normal">Normal (Unweighted)</option>
-            <option value="heavy">Heavy</option>
-          </select>
-          <input type="number" min="1" value="1" class="quantity-input">
-        </div>
-        <div class="price">$17.99</div>
-        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
-      </div>
-
-      <!-- Add more products here -->
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a>
-    </p>
-  </footer>
-
-  <script>
-    function updatePrice(selectElement) {
-      const productCard = selectElement.closest('.product-card');
-      const priceElement = productCard.querySelector('.price');
-      const weight = selectElement.value;
-      const price = productCard.dataset[weight];
-      priceElement.textContent = `$${price}`;
-    }
-
-    function addToCart(buttonElement) {
-      const productCard = buttonElement.closest('.product-card');
-      const quantityInput = productCard.querySelector('.quantity-input');
-      const quantity = parseInt(quantityInput.value);
-      let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
-      cartCount += quantity;
-      localStorage.setItem('cartCount', cartCount);
-      document.getElementById('cart-count').textContent = cartCount;
-    }
-
-    function searchProducts() {
-      const searchInput = document.getElementById('search-input').value.toLowerCase();
-      const productCards = document.querySelectorAll('.product-card');
-      productCards.forEach(card => {
-        const productName = card.querySelector('.product-name').textContent.toLowerCase();
-        if (productName.includes(searchInput)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function sortProducts() {
-      const sortValue = document.getElementById('sort-select').value;
-      const productGrid = document.getElementById('product-grid');
-      const products = Array.from(productGrid.children);
-
-      products.sort((a, b) => {
-        if (sortValue.includes('price')) {
-          const priceA = parseFloat(a.querySelector('.price').textContent.replace('$', ''));
-          const priceB = parseFloat(b.querySelector('.price').textContent.replace('$', ''));
-          return sortValue === 'price-asc' ? priceA - priceB : priceB - priceA;
-        } else if (sortValue.includes('name')) {
-          const nameA = a.querySelector('.product-name').textContent;
-          const nameB = b.querySelector('.product-name').textContent;
-          return sortValue === 'name-asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-        }
-      });
-
-      products.forEach(product => productGrid.appendChild(product));
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartCount = localStorage.getItem('cartCount') || 0;
-      document.getElementById('cart-count').textContent = cartCount;
-    });
-  </script>
-</body>
-</html>
