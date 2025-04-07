@@ -7,19 +7,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Style for the weight and quantity container */
-.weight-quantity-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
+    .weight-quantity-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
 
-.weight-quantity-container select,
-.weight-quantity-container input {
-  margin: 0 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    .weight-quantity-container select,
+    .weight-quantity-container input {
+      margin: 0 5px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
     /* Reset and General Styles */
     * {
       margin: 0;
@@ -119,21 +120,21 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .product-card img {
-      width: 90%; /* Adjusted width to 90% */
+      width: 100%;
       height: auto;
-      max-height: 180px; /* Adjusted max-height to 180px */
-      object-fit: cover;
+      max-height: 200px;
+      object-fit: contain;
       border-radius: 5px;
       margin-bottom: 15px;
     }
     .product-name {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       margin: 10px 0;
       color: #333;
     }
     .price {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 10px;
       color: #333;
     }
@@ -147,7 +148,7 @@
       border: none;
       padding: 10px;
       width: 100%;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
       font-weight: bold;
       border-radius: 5px;
@@ -216,12 +217,14 @@
       <div class="product-card" data-name="Scarlet and Violet: 151 Booster Pack" data-light="11.99" data-heavy="44.99">
         <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="Scarlet and Violet: 151 Booster Pack">
         <div class="product-name">Scarlet and Violet: 151 Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$11.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -229,12 +232,14 @@
       <div class="product-card" data-name="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)" data-light="17.99" data-heavy="54.99">
         <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)">
         <div class="product-name">Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$17.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -242,71 +247,84 @@
       <div class="product-card" data-name="Fossil Booster Pack" data-light="299.99" data-heavy="799.99">
         <img src="https://example.com/fossil.jpg" alt="Fossil Booster Pack">
         <div class="product-name">Fossil Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$299.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
       <div class="product-card" data-name="Team Rocket Booster Pack" data-light="399.99" data-heavy="999.99">
         <img src="https://example.com/teamrocket.jpg" alt="Team Rocket Booster Pack">
         <div class="product-name">Team Rocket Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$399.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
       <div class="product-card" data-name="Gym Heroes Booster Pack" data-light="349.99" data-heavy="849.99">
         <img src="https://example.com/gymheroes.jpg" alt="Gym Heroes Booster Pack">
         <div class="product-name">Gym Heroes Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$349.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
-        <button class="btn" onclick="addToCart(this)">Add to Cart</div>
+        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+      </div>
 
       <div class="product-card" data-name="Neo Genesis Booster Pack" data-light="449.99" data-heavy="1049.99">
         <img src="https://example.com/neogenesis.jpg" alt="Neo Genesis Booster Pack">
         <div class="product-name">Neo Genesis Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$449.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
       <div class="product-card" data-name="Aquapolis Booster Pack" data-light="549.99" data-heavy="1249.99">
         <img src="https://example.com/aquapolis.jpg" alt="Aquapolis Booster Pack">
         <div class="product-name">Aquapolis Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$549.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
       <div class="product-card" data-name="Skyridge Booster Pack" data-light="599.99" data-heavy="1299.99">
         <img src="https://example.com/skyridge.jpg" alt="Skyridge Booster Pack">
         <div class="product-name">Skyridge Booster Pack</div>
-        <select class="weight-select" onchange="updatePrice(this)">
-          <option value="light">Light</option>
-          <option value="heavy">Heavy</option>
-        </select>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="light">Light</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
         <div class="price">$599.99</div>
-        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -318,26 +336,4 @@
     <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
     <p>
       <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a>
-    </p>
-  </footer>
-
-  <script>
-    let cartCount = 0;
-
-    function updatePrice(selectElement) {
-      const productCard = selectElement.closest('.product-card');
-      const weight = selectElement.value;
-      const price = productCard.dataset[weight];
-      productCard.querySelector('.price').textContent = `$${price}`;
-    }
-
-    function addToCart(buttonElement) {
-      const quantity = buttonElement.closest('.product-card').querySelector('.quantity-input').value;
-      cartCount += parseInt(quantity);
-      document.getElementById('cart-count').textContent = cartCount;
-      alert(`${quantity} item(s) added to cart`);
-    }
-  </script>
-</body>
-</html>
+      <a href="#">Terms of Service
