@@ -22,7 +22,6 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--secondary);
       color: var(--dark);
-      overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     /* Announcement Bar */
@@ -37,7 +36,7 @@
       width: 100%;
       text-align: center;
       white-space: nowrap;
-      overflow: hidden; /* Prevent scrolling horizontally */
+      overflow: hidden;
     }
 
     /* Header Styling */
@@ -49,7 +48,7 @@
       padding: 20px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
-      top: 50px; /* Adjusted to move the header up a bit */
+      top: 0; /* Header directly below the announcement bar */
       z-index: 1000;
     }
 
@@ -75,16 +74,6 @@
 
     nav ul li a:hover {
       color: var(--primary);
-    }
-
-    /* Spinning Announcement */
-    .announcement-bar .announcement-text {
-      animation: slide 30s linear infinite; /* Make the animation continuous */
-    }
-
-    @keyframes slide {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
     }
 
     .hero {
@@ -207,9 +196,7 @@
 <body>
 
   <div class="announcement-bar">
-    <div class="announcement-text">
-      Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150 | Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150 |
-    </div>
+    <p>~ Free Shipping on orders over $100 ~ Free Random Booster Pack on orders over $150 ~</p>
   </div>
 
   <header>
@@ -219,7 +206,7 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li> <!-- Corrected Link -->
+        <li><a href="shop.html">Shop</a></li>
         <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
@@ -228,7 +215,7 @@
   <section class="hero">
     <h1>Welcome to Mystic Packs</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a> <!-- Fixed button link -->
+    <a href="shop.html"><button class="btn">Shop Now</button></a>
   </section>
 
   <section class="featured-products">
