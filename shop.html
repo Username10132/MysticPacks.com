@@ -47,8 +47,7 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .logo-container img {
-      width: 60px;
-      height: auto;
+      height: 60px;
     }
     nav ul {
       display: flex;
@@ -207,7 +206,7 @@
   <!-- Header -->
   <header>
     <div class="logo-container">
-      <img src="https://images.unsplash.com/photo-1712413705534-3b244c95ff71?auto=format&fit=crop&w=512&q=80" alt="Mystic Packs Logo">
+      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo" style="height: 60px;">
     </div>
     <nav>
       <ul>
@@ -288,9 +287,12 @@
 
     function addToCart(buttonElement) {
       const productCard = buttonElement.closest('.product-card');
-      const productName = productCard.querySelector('.product-name').textContent;
-      const quantity = productCard.querySelector('.quantity-input').value;
-      alert(`Added ${quantity} x ${productName} to cart.`);
+      const quantityInput = productCard.querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value);
+      let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+      cartCount += quantity;
+      localStorage.setItem('cartCount', cartCount);
+      document.getElementById('cart-count').textContent = cartCount;
     }
 
     function searchProducts() {
@@ -325,60 +327,11 @@
 
       products.forEach(product => productGrid.appendChild(product));
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartCount = localStorage.getItem('cartCount') || 0;
+      document.getElementById('cart-count').textContent = cartCount;
+    });
   </script>
 </body>
 </html>
-<script>
-  function updatePrice(selectElement) {
-    const productCard = selectElement.closest('.product-card');
-    const priceElement = productCard.querySelector('.price');
-    const weight = selectElement.value;
-    const price = productCard.dataset[weight];
-    priceElement.textContent = `$${price}`;
-  }
-
-  function addToCart(buttonElement) {
-    let cartCount = localStorage.getItem('cartCount') || 0;
-    cartCount++;
-    localStorage.setItem('cartCount', cartCount);
-    document.getElementById('cart-count').textContent = cartCount;
-  }
-
-  function searchProducts() {
-    const searchInput = document.getElementById('search-input').value.toLowerCase();
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-      const productName = card.querySelector('.product-name').textContent.toLowerCase();
-      if (productName.includes(searchInput)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  function sortProducts() {
-    const sortValue = document.getElementById('sort-select').value;
-    const productGrid = document.getElementById('product-grid');
-    const products = Array.from(productGrid.children);
-
-    products.sort((a, b) => {
-      if (sortValue.includes('price')) {
-        const priceA = parseFloat(a.querySelector('.price').textContent.replace('$', ''));
-        const priceB = parseFloat(b.querySelector('.price').textContent.replace('$', ''));
-        return sortValue === 'price-asc' ? priceA - priceB : priceB - priceA;
-      } else if (sortValue.includes('name')) {
-        const nameA = a.querySelector('.product-name').textContent;
-        const nameB = b.querySelector('.product-name').textContent;
-        return sortValue === 'name-asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-      }
-    });
-
-    products.forEach(product => productGrid.appendChild(product));
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const cartCount = localStorage.getItem('cartCount') || 0;
-    document.getElementById('cart-count').textContent = cartCount;
-  });
-</script>
