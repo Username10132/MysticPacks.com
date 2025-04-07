@@ -105,9 +105,9 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .product-card img {
-      width: 100%;
+      width: 90%; /* Adjusted width to 90% */
       height: auto;
-      max-height: 200px;
+      max-height: 180px; /* Adjusted max-height to 180px */
       object-fit: cover;
       border-radius: 5px;
       margin-bottom: 15px;
@@ -122,6 +122,10 @@
       font-size: 16px;
       margin-bottom: 10px;
       color: #333;
+    }
+    .quantity-input {
+      width: 50px;
+      margin-bottom: 10px;
     }
     .btn {
       background-color: #007bff;
@@ -196,25 +200,27 @@
     <div class="product-grid">
       <!-- Example Product 1 -->
       <div class="product-card" data-name="Scarlet and Violet: 151 Booster Pack" data-light="11.99" data-heavy="44.99">
-        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="Scarlet and Violet: 151 Booster Pack)">
+        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="Scarlet and Violet: 151 Booster Pack">
         <div class="product-name">Scarlet and Violet: 151 Booster Pack</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$11.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
       <!-- Example Product 2 -->
       <div class="product-card" data-name="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)" data-light="17.99" data-heavy="54.99">
-        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Scarlet and Violet: Prismatic evolutions Booster Pack (Random Artwork)">
+        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)">
         <div class="product-name">Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork</div>
         <select class="weight-select" onchange="updatePrice(this)">
           <option value="light">Light</option>
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$17.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -227,6 +233,7 @@
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$299.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -238,6 +245,7 @@
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$399.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -249,8 +257,8 @@
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$349.99</div>
-        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
-      </div>
+        <input type="number" min="1" value="1" class="quantity-input">
+        <button class="btn" onclick="addToCart(this)">Add to Cart</div>
 
       <div class="product-card" data-name="Neo Genesis Booster Pack" data-light="449.99" data-heavy="1049.99">
         <img src="https://example.com/neogenesis.jpg" alt="Neo Genesis Booster Pack">
@@ -260,6 +268,7 @@
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$449.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -271,6 +280,7 @@
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$549.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -282,6 +292,7 @@
           <option value="heavy">Heavy</option>
         </select>
         <div class="price">$599.99</div>
+        <input type="number" min="1" value="1" class="quantity-input">
         <button class="btn" onclick="addToCart(this)">Add to Cart</button>
       </div>
 
@@ -308,9 +319,10 @@
     }
 
     function addToCart(buttonElement) {
-      cartCount++;
+      const quantity = buttonElement.closest('.product-card').querySelector('.quantity-input').value;
+      cartCount += parseInt(quantity);
       document.getElementById('cart-count').textContent = cartCount;
-      alert('Item added to cart');
+      alert(`${quantity} item(s) added to cart`);
     }
   </script>
 </body>
