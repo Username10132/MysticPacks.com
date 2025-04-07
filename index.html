@@ -10,7 +10,6 @@
       --primary: #00bfff;
       --secondary: #ffffff;
       --dark: #1a1a1a;
-      --announcement-bg: #0099cc;
     }
 
     * {
@@ -25,49 +24,46 @@
       color: var(--dark);
     }
 
+    /* Announcement Bar */
     .announcement-bar {
-      background-color: var(--announcement-bg);
+      background-color: #009fd1; /* Slightly darker blue */
       color: white;
-      font-weight: bold;
       font-size: 16px;
       padding: 10px 0;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
+      z-index: 1000;
       width: 100%;
-      z-index: 1001;
-      white-space: nowrap;
-      overflow: hidden;
-      margin: 0;
+      text-align: center;
     }
 
-    .announcement-text {
+    .announcement-bar .text {
       display: inline-block;
-      animation: slide 20s linear infinite;
+      white-space: nowrap;
+      animation: moveText 25s linear infinite;
+      padding-right: 100%; /* Ensures a gap between each message */
     }
 
-    @keyframes slide {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+    @keyframes moveText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
-    .announcement-text span {
-      margin-right: 50px;
+    .announcement-bar .message {
+      display: inline-block;
+      margin-right: 20px;
     }
 
+    /* Header */
     header {
       background: var(--secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 15px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
-      top: 50px; /* Moves header closer to the announcement bar */
+      top: -2px; /* Move the header up slightly */
       z-index: 1000;
     }
 
@@ -202,17 +198,21 @@
       font-size: 14px;
     }
 
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="announcement-bar">
-    <div class="announcement-text">
-      <span>~ Free Shipping on Orders Over $100 ~</span>
-      <span>~ Free Random Booster Pack on Orders Over $150 ~</span>
-      <span>~ Free Shipping on Orders Over $100 ~</span>
-      <span>~ Free Random Booster Pack on Orders Over $150 ~</span>
-      <!-- Add more announcements here if you want them to loop -->
+    <div class="text">
+      <div class="message">Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150 | Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150</div>
     </div>
   </div>
 
@@ -232,7 +232,7 @@
   <section class="hero">
     <h1>Welcome to Mystic Packs</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a>
+    <a href="shop.html"><button class="btn">Shop Now</button></a> <!-- Fixed button link -->
   </section>
 
   <section class="featured-products">
@@ -251,6 +251,8 @@
         <div class="price">$17.99</div>
         <button class="btn">Add to Cart</button>
       </div>
+
+      <!-- Add more product cards here -->
     </div>
   </section>
 
