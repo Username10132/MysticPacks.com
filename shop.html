@@ -3,377 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mystic Packs - Shop</title>
+  <title>Mystic Packs - Sleek Redesign</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00bfff;
+      --secondary: #ffffff;
+      --dark: #1a1a1a;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    a {
-      text-decoration: none;
-      color: #007bff;
+      background-color: var(--secondary);
+      color: var(--dark);
     }
 
-    /* Header */
     header {
-      background-color: #fff;
-      padding: 15px 30px;
+      background: var(--secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+
     .logo-container img {
       height: 60px;
     }
+
     nav ul {
       display: flex;
       list-style: none;
     }
+
     nav ul li {
-      margin-left: 25px;
-      position: relative;
+      margin-left: 30px;
     }
+
     nav ul li a {
-      font-size: 16px;
       font-weight: bold;
-      transition: color 0.2s ease-in-out;
-    }
-    nav ul li a:hover {
-      color: #0056b3;
-    }
-    .cart-count {
-      background-color: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 12px;
-      position: absolute;
-      top: -5px;
-      right: -10px;
-    }
-    .search-icon {
-      cursor: pointer;
-      color: #007bff;
-      font-size: 24px;
-      margin-left: 20px;
-    }
-    .search-container {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 300px;
-      height: 100%;
-      background-color: #fff;
-      padding: 20px;
-      transition: right 0.3s ease-in-out;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-    .search-container.open {
-      right: 0;
-    }
-    .search-container input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    .search-results {
-      margin-top: 10px;
-    }
-    .search-results a {
-      display: block;
-      color: #007bff;
+      color: var(--dark);
       text-decoration: none;
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-    .search-results a:hover {
-      background-color: #f4f4f4;
-      color: #0056b3;
+      transition: color 0.3s;
     }
 
-    /* Main Content */
-    .container {
-      padding: 40px;
+    nav ul li a:hover {
+      color: var(--primary);
     }
-    h1 {
+
+    .hero {
       text-align: center;
-      margin-bottom: 40px;
-      color: #333;
+      padding: 80px 20px;
+      background: linear-gradient(to bottom right, var(--primary), #e0f7ff);
+      color: white;
     }
 
-    /* Filters */
-    .filters {
-      display: flex;
-      justify-content: center;
+    .hero h1 {
+      font-size: 48px;
       margin-bottom: 20px;
     }
-    .filters select {
-      margin: 0 10px;
-      padding: 10px;
-      background-color: #fff;
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
     }
 
-    /* Product Grid */
+    .hero .btn {
+      background-color: white;
+      color: var(--primary);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero .btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    .featured-products {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      color: var(--dark);
+    }
+
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
     }
+
     .product-card {
+      background-color: white;
+      border-radius: 10px;
       padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       text-align: center;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
+      transition: transform 0.2s;
     }
+
     .product-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px);
     }
+
     .product-card img {
       width: 100%;
       height: 200px;
       object-fit: contain;
-      border-radius: 5px;
       margin-bottom: 15px;
     }
+
     .product-name {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
-      margin: 10px 0;
-      color: #333;
-    }
-    .price {
-      font-size: 14px;
       margin-bottom: 10px;
-      color: #333;
-    }
-    .quantity-input {
-      width: 50px;
-      margin-bottom: 10px;
-    }
-    .btn {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      font-size: 14px;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    .btn:hover {
-      background-color: #0056b3;
     }
 
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-      .product-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    .price {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 15px;
     }
-    @media (max-width: 992px) {
-      .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    @media (max-width: 768px) {
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+
+    .btn:hover {
+      background-color: #009fd1;
     }
-    @media (max-width: 576px) {
-      .product-grid {
-        grid-template-columns: 1fr;
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f8f8f8;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="logo-container">
-      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo" style="height: 60px;">
+      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo">
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="cart.html">Cart 🛒<span class="cart-count" id="cart-count">0</span></a></li>
-        <li><span class="search-icon" onclick="toggleSearch()">🔍</span></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="search-container" id="search-container">
-    <input type="text" placeholder="Search Pokémon packs..." id="search-input" oninput="searchProducts()">
-    <div class="search-results" id="search-results"></div>
-  </div>
+  <section class="hero">
+    <h1>Welcome to Mystic Packs</h1>
+    <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
+    <button class="btn">Shop Now</button>
+  </section>
 
-  <div class="container">
-    <h1>Our Products</h1>
-    <div class="filters">
-      <select id="filter1" onchange="filterProducts()">
-        <option value="all">All Products</option>
-        <option value="booster-packs">All Booster Packs</option>
-        <option value="tins">All Tins</option>
-      </select>
-      <select id="filter2" onchange="filterProducts()">
-        <option value="all">All</option>
-        <option value="vintage">Vintage Packs</option>
-        <option value="modern">Modern Packs</option>
-        <option value="tins">Tins</option>
-      </select>
-    </div>
-
-    <div class="product-grid" id="product-grid">
-      <!-- Example Product 1 -->
-      <div class="product-card" data-category="booster-packs" data-type="modern" data-name="Scarlet and Violet: 151 Booster Pack" data-normal="11.99" data-heavy="44.99">
-        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="Scarlet and Violet: 151 Booster Pack">
-        <div class="product-name">Scarlet and Violet: 151 Booster Pack</div>
-        <div class="weight-quantity-container">
-          <select class="weight-select" onchange="updatePrice(this)">
-            <option value="normal">Normal (Unweighted)</option>
-            <option value="heavy">Heavy</option>
-          </select>
-          <input type="number" min="1" value="1" class="quantity-input">
-        </div>
+  <section class="featured-products">
+    <h2 class="section-title">Featured Packs</h2>
+    <div class="product-grid">
+      <!-- Product Cards Here -->
+      <div class="product-card">
+        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="151 Booster Pack">
+        <div class="product-name">Scarlet & Violet 151</div>
         <div class="price">$11.99</div>
-        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+        <button class="btn">Add to Cart</button>
       </div>
 
-      <!-- Example Product 2 -->
-      <div class="product-card" data-category="booster-packs" data-type="modern" data-name="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)" data-normal="17.99" data-heavy="54.99">
-        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)">
-        <div class="product-name">Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)</div>
-        <div class="weight-quantity-container">
-          <select class="weight-select" onchange="updatePrice(this)">
-            <option value="normal">Normal (Unweighted)</option>
-            <option value="heavy">Heavy</option>
-          </select>
-          <input type="number" min="1" value="1" class="quantity-input">
-        </div>
+      <div class="product-card">
+        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Prismatic Evolutions">
+        <div class="product-name">Prismatic Evolutions</div>
         <div class="price">$17.99</div>
-        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+        <button class="btn">Add to Cart</button>
       </div>
 
-      <!-- Add more products here -->
+      <!-- Add more product cards here -->
     </div>
-  </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a>
-    </p>
   </footer>
 
-  <script>
-    function toggleSearch() {
-      const searchContainer = document.getElementById('search-container');
-      searchContainer.classList.toggle('open');
-    }
-
-    async function searchProducts() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const resultsContainer = document.getElementById('search-results');
-
-      if (query.length < 3) {
-        resultsContainer.innerHTML = '';
-        return;
-      }
-
-      const response = await fetch('shop.html');
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const products = doc.querySelectorAll('.product-card');
-
-      resultsContainer.innerHTML = '';
-      products.forEach(product => {
-        if (product.textContent.toLowerCase().includes(query)) {
-          const productLink = document.createElement('a');
-          productLink.href = 'shop.html';
-          productLink.textContent = product.querySelector('.product-name').textContent;
-          resultsContainer.appendChild(productLink);
-        }
-      });
-    }
-
-    document.addEventListener('click', function(event) {
-      const searchContainer = document.getElementById('search-container');
-      const searchIcon = document.querySelector('.search-icon');
-
-      if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
-        searchContainer.classList.remove('open');
-      }
-    });
-
-    function updatePrice(selectElement) {
-      const productCard = selectElement.closest('.product-card');
-      const priceElement = productCard.querySelector('.price');
-      const weight = selectElement.value;
-      const price = productCard.dataset[weight];
-      priceElement.textContent = `$${price}`;
-    }
-
-    function addToCart(buttonElement) {
-      const productCard = buttonElement.closest('.product-card');
-      const quantityInput = productCard.querySelector('.quantity-input');
-      const quantity = parseInt(quantityInput.value);
-      let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
-      cartCount += quantity;
-      localStorage.setItem('cartCount', cartCount);
-      document.getElementById('cart-count').textContent = cartCount;
-    }
-
-    function filterProducts() {
-      const filter1 = document.getElementById('filter1').value;
-      const filter2 = document.getElementById('filter2').value;
-      const productCards = document.querySelectorAll('.product-card');
-
-      productCards.forEach(card => {
-        const category = card.dataset.category;
-        const type = card.dataset.type;
-
-        if ((filter1 === 'all' || filter1 === category) && (filter2 === 'all' || filter2 === type)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartCount = localStorage.getItem('cartCount') || 0;
-      document.getElementById('cart-count').textContent = cartCount;
-    });
-  </script>
 </body>
 </html>
+
