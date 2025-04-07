@@ -6,14 +6,6 @@
   <title>Mystic Packs - Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #001f3f;
-      --accent-color: #FFD700;
-      --background-color: #000000;
-      --text-color: #ffffff;
-      --secondary-text-color: #FFD700;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -21,25 +13,22 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
+      background-color: #f4f4f4;
+      color: #333;
     }
     a {
       text-decoration: none;
-      color: var(--accent-color);
+      color: #007bff;
     }
 
     /* Header */
     header {
-      background-color: var(--primary-color);
+      background-color: #fff;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
     .logo-container img {
       height: 60px;
@@ -58,11 +47,11 @@
       transition: color 0.2s ease-in-out;
     }
     nav ul li a:hover {
-      color: var(--secondary-text-color);
+      color: #0056b3;
     }
     .cart-count {
-      background-color: var(--accent-color);
-      color: var(--background-color);
+      background-color: red;
+      color: white;
       border-radius: 50%;
       padding: 2px 6px;
       font-size: 12px;
@@ -78,18 +67,16 @@
 
     .search-bar input {
       padding: 5px;
-      border: 1px solid var(--secondary-text-color);
+      border: 1px solid #ccc;
       border-radius: 5px;
       margin-right: 5px;
-      background-color: var(--background-color);
-      color: var(--text-color);
     }
 
     .search-bar button {
       padding: 5px 10px;
       border: none;
-      background-color: var(--accent-color);
-      color: var(--background-color);
+      background-color: #007bff;
+      color: white;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -101,7 +88,7 @@
     h1 {
       text-align: center;
       margin-bottom: 40px;
-      color: var(--text-color);
+      color: #333;
     }
 
     /* Filters */
@@ -113,9 +100,9 @@
     .filters select {
       margin: 0 10px;
       padding: 10px;
-      background-color: var(--primary-color);
-      color: var(--text-color);
-      border: 1px solid var(--secondary-text-color);
+      background-color: #fff;
+      color: #333;
+      border: 1px solid #ccc;
       border-radius: 5px;
     }
 
@@ -124,7 +111,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 20px;
-      background-color: var(--background-color);
+      background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -132,17 +119,13 @@
     .product-card {
       padding: 20px;
       text-align: center;
-      background-color: var(--primary-color);
+      background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-    .product-card:hover {
-      transform: scale(1.05);
     }
     .product-card img {
       width: 100%;
-      height: 300px;
+      height: 200px;
       object-fit: contain;
       border-radius: 5px;
       margin-bottom: 15px;
@@ -151,20 +134,20 @@
       font-size: 16px;
       font-weight: bold;
       margin: 10px 0;
-      color: var(--text-color);
+      color: #333;
     }
     .price {
       font-size: 14px;
       margin-bottom: 10px;
-      color: var(--text-color);
+      color: #333;
     }
     .quantity-input {
       width: 50px;
       margin-bottom: 10px;
     }
     .btn {
-      background-color: var(--accent-color);
-      color: var(--background-color);
+      background-color: #007bff;
+      color: #fff;
       border: none;
       padding: 10px;
       width: 100%;
@@ -175,7 +158,7 @@
       transition: background-color 0.3s;
     }
     .btn:hover {
-      background-color: var(--secondary-text-color);
+      background-color: #0056b3;
     }
 
     /* Responsive Design */
@@ -206,10 +189,9 @@
   <!-- Header -->
   <header>
     <div class="logo-container">
-      <img src="/mnt/data/A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo">
+      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo" style="height: 60px;">
     </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="cart.html">Cart 🛒<span class="cart-count" id="cart-count">0</span></a></li>
+        <li><a href="shop.html">Shop</
