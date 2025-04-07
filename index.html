@@ -6,6 +6,14 @@
   <title>Mystic Packs | Pokémon TCG Store</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
+    :root {
+      --primary-color: #001f3f;
+      --accent-color: #FFD700;
+      --background-color: #000000;
+      --text-color: #ffffff;
+      --secondary-text-color: #FFD700;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,26 +21,28 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
     a {
       text-decoration: none;
-      color: #007bff;
+      color: var(--accent-color);
     }
 
     /* Header */
     header {
-      background-color: #fff;
+      background-color: var(--primary-color);
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     .logo-container img {
-      width: 60px;
-      height: auto;
+      height: 60px;
     }
     nav ul {
       display: flex;
@@ -48,11 +58,11 @@
       transition: color 0.2s ease-in-out;
     }
     nav ul li a:hover {
-      color: #0056b3;
+      color: var(--secondary-text-color);
     }
     .cart-count {
-      background-color: red;
-      color: white;
+      background-color: var(--accent-color);
+      color: var(--background-color);
       border-radius: 50%;
       padding: 2px 6px;
       font-size: 12px;
@@ -62,7 +72,7 @@
     }
     .search-icon {
       cursor: pointer;
-      color: #007bff;
+      color: var(--accent-color);
       font-size: 24px;
       margin-left: 20px;
     }
@@ -72,7 +82,7 @@
       right: -100%;
       width: 300px;
       height: 100%;
-      background-color: #fff;
+      background-color: var(--primary-color);
       padding: 20px;
       transition: right 0.3s ease-in-out;
       box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
@@ -83,23 +93,25 @@
     .search-container input {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--secondary-text-color);
       border-radius: 5px;
       margin-bottom: 10px;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
     .search-results {
       margin-top: 10px;
     }
     .search-results a {
       display: block;
-      color: #007bff;
+      color: var(--accent-color);
       text-decoration: none;
       padding: 10px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--secondary-text-color);
     }
     .search-results a:hover {
-      background-color: #f4f4f4;
-      color: #0056b3;
+      background-color: var(--background-color);
+      color: var(--secondary-text-color);
     }
 
     /* Banner */
@@ -142,7 +154,7 @@
     }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 20px;
     }
     .product-card {
@@ -203,7 +215,7 @@
       margin-bottom: 10px;
     }
     footer a {
-      color: #007bff;
+      color: var(--accent-color);
       text-decoration: none;
       margin: 0 10px;
     }
@@ -223,8 +235,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
         <li>
-          <a href="cart.html">Cart</a>
-          <span class="cart-count" id="cart-count">0</span>
+          <a href="cart.html">Cart 🛒<span class="cart-count" id="cart-count">0</span></a>
         </li>
         <li><span class="search-icon" onclick="toggleSearch()">🔍</span></li>
       </ul>
@@ -338,7 +349,7 @@
         if (product.textContent.toLowerCase().includes(query)) {
           const productLink = document.createElement('a');
           productLink.href = 'shop.html';
-          productLink.textContent = product.querySelector('h4').textContent;
+          productLink.textContent = product.querySelector('.product-name').textContent;
           resultsContainer.appendChild(productLink);
         }
       });
@@ -348,7 +359,7 @@
       const searchContainer = document.getElementById('search-container');
       const searchIcon = document.querySelector('.search-icon');
 
-      if (!searchContainer contains(event.target) && !searchIcon contains(event.target)) {
+      if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
         searchContainer.classList.remove('open');
       }
     });
