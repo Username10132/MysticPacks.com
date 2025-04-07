@@ -10,6 +10,7 @@
       --primary: #00bfff;
       --secondary: #ffffff;
       --dark: #1a1a1a;
+      --announcement-bg: #009fd1; /* Slightly darker blue */
     }
 
     * {
@@ -27,17 +28,27 @@
     /* Announcement Bar */
     .announcement-bar {
       position: fixed;
-      top: 0;
+      top: 0; /* Place at the top */
       left: 0;
       right: 0;
-      background-color: #ffcc00;
-      color: black;
+      background-color: var(--announcement-bg);
+      color: white;
       font-weight: bold;
-      padding: 10px 0;
+      padding: 5px 0;
       text-align: center;
-      font-size: 16px;
+      font-size: 14px;
       z-index: 1000;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+      height: 30px;
+    }
+
+    .announcement-text {
+      display: inline-block;
       animation: scrollLeft 15s linear infinite;
+      padding-left: 100%;
+      margin-right: 50px;
     }
 
     /* Spinning Animation */
@@ -58,7 +69,7 @@
       padding: 20px 40px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       position: sticky;
-      top: 0;
+      top: 60px; /* Move header down so it doesn't overlap with the announcement bar */
       z-index: 999;
     }
 
@@ -181,33 +192,15 @@
       cursor: pointer;
     }
 
-    .btn:hover {
-      background-color: #009fd1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f8f8f8;
-      color: #666;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-      .hero p {
-        font-size: 16px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <!-- Announcement Bar -->
   <div class="announcement-bar">
-    ~ Free Shipping on orders over $100 ~ Free Random Booster Pack on orders over $150 ~
+    <div class="announcement-text">
+      Free Shipping on orders over $100 ~ Free Random Booster Pack on orders over $150 ~
+    </div>
   </div>
 
   <header>
@@ -217,7 +210,7 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li> <!-- Corrected Link -->
+        <li><a href="shop.html">Shop</a></li>
         <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
@@ -226,7 +219,7 @@
   <section class="hero">
     <h1>Welcome to Mystic Packs</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a> <!-- Fixed button link -->
+    <a href="shop.html"><button class="btn">Shop Now</button></a>
   </section>
 
   <section class="featured-products">
@@ -245,7 +238,6 @@
         <div class="price">$17.99</div>
         <button class="btn">Add to Cart</button>
       </div>
-
       <!-- Add more product cards here -->
     </div>
   </section>
