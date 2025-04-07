@@ -109,7 +109,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 20px;
-      background-color: var(--background-color);
+      background-color: var (--background-color);
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -117,7 +117,7 @@
     .product-card {
       padding: 20px;
       text-align: center;
-      background-color: var(--primary-color);
+      background-color: var (--primary-color);
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
@@ -195,20 +195,7 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li>
-          <a href="shop.html">Shop</a>
-          <select id="filter1" onchange="filterProducts()">
-            <option value="all">All Products</option>
-            <option value="booster-packs">All Booster Packs</option>
-            <option value="tins">All Tins</option>
-          </select>
-          <select id="filter2" onchange="filterProducts()">
-            <option value="all">All</option>
-            <option value="vintage">Vintage Packs</option>
-            <option value="modern">Modern Packs</option>
-            <option value="tins">Tins</option>
-          </select>
-        </li>
+        <li><a href="shop.html">Shop</a></li>
         <li>
           <a href="cart.html">Cart 🛒<span class="cart-count" id="cart-count">0</span></a>
         </li>
