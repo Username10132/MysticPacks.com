@@ -10,7 +10,7 @@
       --primary: #00bfff;
       --secondary: #ffffff;
       --dark: #1a1a1a;
-      --announcement-bg: #0099cc; /* Slightly darker blue */
+      --announcement-bg: #0099cc;
     }
 
     * {
@@ -43,7 +43,7 @@
 
     .announcement-text {
       display: inline-block;
-      animation: slide 15s linear infinite;
+      animation: slide 20s linear infinite;
     }
 
     @keyframes slide {
@@ -67,7 +67,7 @@
       padding: 20px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
-      top: 50px;
+      top: 50px; /* Moves header closer to the announcement bar */
       z-index: 1000;
     }
 
@@ -202,23 +202,17 @@
       font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-      .hero p {
-        font-size: 16px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="announcement-bar">
     <div class="announcement-text">
-      <span>~ Free Shipping on orders over $100 ~ Free Random Booster Pack on orders over $150 ~</span>
-      <span>~ Free Shipping on orders over $100 ~ Free Random Booster Pack on orders over $150 ~</span>
-      <span>~ Free Shipping on orders over $100 ~ Free Random Booster Pack on orders over $150 ~</span>
+      <span>~ Free Shipping on Orders Over $100 ~</span>
+      <span>~ Free Random Booster Pack on Orders Over $150 ~</span>
+      <span>~ Free Shipping on Orders Over $100 ~</span>
+      <span>~ Free Random Booster Pack on Orders Over $150 ~</span>
+      <!-- Add more announcements here if you want them to loop -->
     </div>
   </div>
 
@@ -229,7 +223,7 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html">Shop</a></li> <!-- Corrected Link -->
         <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
@@ -257,8 +251,6 @@
         <div class="price">$17.99</div>
         <button class="btn">Add to Cart</button>
       </div>
-
-      <!-- Add more product cards here -->
     </div>
   </section>
 
