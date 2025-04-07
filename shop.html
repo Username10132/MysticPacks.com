@@ -328,3 +328,57 @@
   </script>
 </body>
 </html>
+<script>
+  function updatePrice(selectElement) {
+    const productCard = selectElement.closest('.product-card');
+    const priceElement = productCard.querySelector('.price');
+    const weight = selectElement.value;
+    const price = productCard.dataset[weight];
+    priceElement.textContent = `$${price}`;
+  }
+
+  function addToCart(buttonElement) {
+    let cartCount = localStorage.getItem('cartCount') || 0;
+    cartCount++;
+    localStorage.setItem('cartCount', cartCount);
+    document.getElementById('cart-count').textContent = cartCount;
+  }
+
+  function searchProducts() {
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+      const productName = card.querySelector('.product-name').textContent.toLowerCase();
+      if (productName.includes(searchInput)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function sortProducts() {
+    const sortValue = document.getElementById('sort-select').value;
+    const productGrid = document.getElementById('product-grid');
+    const products = Array.from(productGrid.children);
+
+    products.sort((a, b) => {
+      if (sortValue.includes('price')) {
+        const priceA = parseFloat(a.querySelector('.price').textContent.replace('$', ''));
+        const priceB = parseFloat(b.querySelector('.price').textContent.replace('$', ''));
+        return sortValue === 'price-asc' ? priceA - priceB : priceB - priceA;
+      } else if (sortValue.includes('name')) {
+        const nameA = a.querySelector('.product-name').textContent;
+        const nameB = b.querySelector('.product-name').textContent;
+        return sortValue === 'name-asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+      }
+    });
+
+    products.forEach(product => productGrid.appendChild(product));
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const cartCount = localStorage.getItem('cartCount') || 0;
+    document.getElementById('cart-count').textContent = cartCount;
+  });
+</script>
