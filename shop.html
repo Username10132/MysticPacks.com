@@ -163,3 +163,196 @@
       margin-bottom: 10px;
     }
     .btn {
+      background-color: var(--accent-color);
+      color: var(--background-color);
+      border: none;
+      padding: 10px;
+      width: 100%;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: var(--secondary-text-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 992px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 576px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="/mnt/data/A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart 🛒<span class="cart-count" id="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button onclick="searchProducts()">Search</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Our Products</h1>
+    <div class="filters">
+      <select id="filter1" onchange="filterProducts()">
+        <option value="all">All Products</option>
+        <option value="booster-packs">All Booster Packs</option>
+        <option value="tins">All Tins</option>
+      </select>
+      <select id="filter2" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="vintage">Vintage Packs</option>
+        <option value="modern">Modern Packs</option>
+        <option value="tins">Tins</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <!-- Example Product 1 -->
+      <div class="product-card" data-category="booster-packs" data-type="modern" data-name="Scarlet and Violet: 151 Booster Pack" data-normal="11.99" data-heavy="44.99">
+        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="Scarlet and Violet: 151 Booster Pack">
+        <div class="product-name">Scarlet and Violet: 151 Booster Pack</div>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="normal">Normal (Unweighted)</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <div class="price">$11.99</div>
+        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+      </div>
+
+      <!-- Example Product 2 -->
+      <div class="product-card" data-category="booster-packs" data-type="modern" data-name="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)" data-normal="17.99" data-heavy="54.99">
+        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)">
+        <div class="product-name">Scarlet and Violet: Prismatic Evolutions Booster Pack (Random Artwork)</div>
+        <div class="weight-quantity-container">
+          <select class="weight-select" onchange="updatePrice(this)">
+            <option value="normal">Normal (Unweighted)</option>
+            <option value="heavy">Heavy</option>
+          </select>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <div class="price">$17.99</div>
+        <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+      </div>
+
+      <!-- Add more products here -->
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a>
+    </p>
+  </footer>
+
+  <script>
+    function updatePrice(selectElement) {
+      const productCard = selectElement.closest('.product-card');
+      const priceElement = productCard.querySelector('.price');
+      const weight = selectElement.value;
+      const price = productCard.dataset[weight];
+      priceElement.textContent = `$${price}`;
+    }
+
+    function addToCart(buttonElement) {
+      const productCard = buttonElement.closest('.product-card');
+      const quantityInput = productCard.querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value);
+      let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+      cartCount += quantity;
+      localStorage.setItem('cartCount', cartCount);
+      document.getElementById('cart-count').textContent = cartCount;
+    }
+
+    function searchProducts() {
+      const searchInput = document.getElementById('search-input').value.toLowerCase();
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach(card => {
+        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+        if (productName.includes(searchInput)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function sortProducts() {
+      const sortValue = document.getElementById('sort-select').value;
+      const productGrid = document.getElementById('product-grid');
+      const products = Array.from(productGrid.children);
+
+      products.sort((a, b) => {
+        if (sortValue.includes('price')) {
+          const priceA = parseFloat(a.querySelector('.price').textContent.replace('$', ''));
+          const priceB = parseFloat(b.querySelector('.price').textContent.replace('$', ''));
+          return sortValue === 'price-asc' ? priceA - priceB : priceB - priceA;
+        } else if (sortValue.includes('name')) {
+          const nameA = a.querySelector('.product-name').textContent;
+          const nameB = b.querySelector('.product-name').textContent;
+          return sortValue === 'name-asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+        }
+      });
+
+      products.forEach(product => productGrid.appendChild(product));
+    }
+
+    function filterProducts() {
+      const filter1 = document.getElementById('filter1').value;
+      const filter2 = document.getElementById('filter2').value;
+      const productCards = document.querySelectorAll('.product-card');
+
+      productCards.forEach(card => {
+        const category = card.dataset.category;
+        const type = card.dataset.type;
+
+        if ((filter1 === 'all' || filter1 === category) && (filter2 === 'all' || filter2 === type)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartCount = localStorage.getItem('cartCount') || 0;
+      document.getElementById('cart-count').textContent = cartCount;
+    });
+  </script>
+</body>
+</html>
