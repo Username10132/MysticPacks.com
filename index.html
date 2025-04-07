@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mystic Packs | Pokémon TCG Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystic Packs - Sleek Redesign</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #001f3f;
-      --accent-color: #FFD700;
-      --background-color: #000000;
-      --text-color: #ffffff;
-      --secondary-text-color: #FFD700;
+      --primary: #00bfff;
+      --secondary: #ffffff;
+      --dark: #1a1a1a;
     }
 
     * {
@@ -19,208 +17,163 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-    }
-    a {
-      text-decoration: none;
-      color: var(--accent-color);
+      background-color: var(--secondary);
+      color: var(--dark);
     }
 
-    /* Header */
     header {
-      background-color: var(--primary-color);
-      padding: 15px 30px;
+      background: var(--secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+
     .logo-container img {
       height: 60px;
     }
+
     nav ul {
       display: flex;
       list-style: none;
     }
+
     nav ul li {
-      margin-left: 25px;
-      position: relative;
+      margin-left: 30px;
     }
+
     nav ul li a {
-      font-size: 16px;
       font-weight: bold;
-      transition: color 0.2s ease-in-out;
-    }
-    nav ul li a:hover {
-      color: var(--secondary-text-color);
-    }
-    .cart-count {
-      background-color: var(--accent-color);
-      color: var(--background-color);
-      border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 12px;
-      position: absolute;
-      top: -5px;
-      right: -10px;
-    }
-    .search-icon {
-      cursor: pointer;
-      color: var(--accent-color);
-      font-size: 24px;
-      margin-left: 20px;
-    }
-    .search-container {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 300px;
-      height: 100%;
-      background-color: var(--primary-color);
-      padding: 20px;
-      transition: right 0.3s ease-in-out;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-    .search-container.open {
-      right: 0;
-    }
-    .search-container input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid var(--secondary-text-color);
-      border-radius: 5px;
-      margin-bottom: 10px;
-      background-color: var(--background-color);
-      color: var(--text-color);
-    }
-    .search-results {
-      margin-top: 10px;
-    }
-    .search-results a {
-      display: block;
-      color: var(--accent-color);
+      color: var(--dark);
       text-decoration: none;
-      padding: 10px;
-      border-bottom: 1px solid var(--secondary-text-color);
-    }
-    .search-results a:hover {
-      background-color: var(--background-color);
-      color: var(--secondary-text-color);
+      transition: color 0.3s;
     }
 
-    /* Banner */
-    .banner {
-      background: linear-gradient(to right, #007bff, #0056b3);
-      padding: 60px 30px;
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
       text-align: center;
-      color: #fff;
-    }
-    .banner h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    .banner p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-    .banner a button {
-      background-color: #fff;
-      color: #007bff;
-      padding: 15px 30px;
-      border: none;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .banner a button:hover {
-      background-color: #f4f4f4;
+      padding: 80px 20px;
+      background: linear-gradient(to bottom right, var(--primary), #e0f7ff);
+      color: white;
     }
 
-    /* Products */
-    .product-section {
-      padding: 40px 30px;
-    }
-    .product-section h3 {
-      font-size: 28px;
+    .hero h1 {
+      font-size: 48px;
       margin-bottom: 20px;
-      color: #333;
     }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .hero .btn {
+      background-color: white;
+      color: var(--primary);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero .btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    .featured-products {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      color: var(--dark);
+    }
+
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
     }
+
     .product-card {
-      background-color: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
+      background-color: white;
+      border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s;
     }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
     .product-card img {
       width: 100%;
       height: 200px;
-      object-fit: cover;
-      border-radius: 5px;
+      object-fit: contain;
       margin-bottom: 15px;
     }
-    .product-card h4 {
+
+    .product-name {
       font-size: 18px;
-      margin-top: 15px;
-      color: #333;
-    }
-    .product-card p {
-      font-size: 14px;
-      color: #666;
-      margin: 10px 0;
-    }
-    .price {
-      font-size: 18px;
+      font-weight: bold;
       margin-bottom: 10px;
-      color: #333;
-      font-weight: bold;
     }
-    .add-to-cart button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
+
+    .price {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
       border: none;
-      color: #fff;
-      font-weight: bold;
+      padding: 10px 20px;
+      font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
     }
-    .add-to-cart button:hover {
-      background-color: #0056b3;
+
+    .btn:hover {
+      background-color: #009fd1;
     }
 
-    /* Footer */
     footer {
-      background-color: #fff;
       text-align: center;
-      padding: 30px;
-      margin-top: 50px;
+      padding: 20px;
+      background: #f8f8f8;
       color: #666;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
     }
-    footer p {
-      margin-bottom: 10px;
-    }
-    footer a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover {
-      text-decoration: underline;
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -228,154 +181,48 @@
 
   <header>
     <div class="logo-container">
-      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo" style="height: 60px;">
+      <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo">
     </div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li>
-          <a href="cart.html">Cart 🛒<span class="cart-count" id="cart-count">0</span></a>
-        </li>
-        <li><span class="search-icon" onclick="toggleSearch()">🔍</span></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="search-container" id="search-container">
-    <input type="text" placeholder="Search Pokémon packs..." id="search-input" oninput="searchProducts()">
-    <div class="search-results" id="search-results"></div>
-  </div>
-
-  <section class="banner">
-    <h2>🔥 The Ultimate Pokémon TCG Experience</h2>
-    <p>Shop rare booster packs & exclusive Scarlet and Violet 151 Mini Tins now.</p>
-    <a href="shop.html">
-      <button>Shop Now</button>
-    </a>
+  <section class="hero">
+    <h1>Welcome to Mystic Packs</h1>
+    <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
+    <button class="btn">Shop Now</button>
   </section>
 
-  <section class="product-section">
-    <h3>🔥 Trending Products 🔥</h3>
+  <section class="featured-products">
+    <h2 class="section-title">Featured Packs</h2>
     <div class="product-grid">
-      <!-- Example Product 1 -->
+      <!-- Product Cards Here -->
       <div class="product-card">
-        <img src="https://m.media-amazon.com/images/I/81PMcgckvKL.jpg" alt="Base Set Booster Pack">
-        <h4>Base Set Booster Pack</h4>
-        <p>Relive the classics with random artwork from this nostalgic set.</p>
-        <div class="price">$554.99</div>
-        <div class="add-to-cart">
-          <button onclick="addToCart()">Add to Cart</button>
-        </div>
+        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="151 Booster Pack">
+        <div class="product-name">Scarlet & Violet 151</div>
+        <div class="price">$11.99</div>
+        <button class="btn">Add to Cart</button>
       </div>
 
-      <!-- Example Product 2 -->
       <div class="product-card">
-        <img src="https://rogerz.dk/cdn/shop/files/Jungleboosterpacks1stedition_512x512.jpg?v=1714675190" alt="Jungle Booster Pack">
-        <h4>Jungle Booster Pack</h4>
-        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
-        <div class="price">$249.99</div>
-        <div class="add-to-cart">
-          <button onclick="addToCart()">Add to Cart</button>
-        </div>
+        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Prismatic Evolutions">
+        <div class="product-name">Prismatic Evolutions</div>
+        <div class="price">$17.99</div>
+        <button class="btn">Add to Cart</button>
       </div>
 
-      <!-- Example Product 3 -->
-      <div class="product-card">
-        <img src="https://m.media-amazon.com/images/I/61MM+5ttBbL.jpg" alt="XY Evolutions Booster Pack">
-        <h4>XY Evolutions Booster Pack</h4>
-        <p>Relive the classics with random artwork from this nostalgic set.</p>
-        <div class="price">$94.99</div>
-        <div class="add-to-cart">
-          <button onclick="addToCart()">Add to Cart</button>
-        </div>
-      </div>
-
-      <!-- Example Product 4 -->
-      <div class="product-card">
-        <img src="https://www.pokemoncenter.com/images/DAMRoot/High/10004/P10460_100-10096_06.jpg" alt="Scarlet & Violet 151 Tin">
-        <h4>Scarlet & Violet 151 Tin</h4>
-        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
-        <div class="price">$24.99</div>
-        <div class="add-to-cart">
-          <button onclick="addToCart()">Add to Cart</button>
-        </div>
-      </div>
-
-      <!-- Example Product 5 -->
-      <div class="product-card">
-        <img src="https://example.com/fossil.jpg" alt="Fossil Booster Pack">
-        <h4>Fossil Booster Pack</h4>
-        <p>Exclusive mini tins featuring your favorite Kanto Pokémon.</p>
-        <div class="price">$299.99</div>
-        <div class="add-to-cart">
-          <button onclick="addToCart()">Add to Cart</button>
-        </div>
-      </div>
+      <!-- Add more product cards here -->
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a>
-    </p>
   </footer>
 
-  <script>
-    function toggleSearch() {
-      const searchContainer = document.getElementById('search-container');
-      searchContainer.classList.toggle('open');
-    }
-
-    async function searchProducts() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const resultsContainer = document.getElementById('search-results');
-
-      if (query.length < 3) {
-        resultsContainer.innerHTML = '';
-        return;
-      }
-
-      const response = await fetch('shop.html');
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const products = doc.querySelectorAll('.product-card');
-
-      resultsContainer.innerHTML = '';
-      products.forEach(product => {
-        if (product.textContent.toLowerCase().includes(query)) {
-          const productLink = document.createElement('a');
-          productLink.href = 'shop.html';
-          productLink.textContent = product.querySelector('.product-name').textContent;
-          resultsContainer.appendChild(productLink);
-        }
-      });
-    }
-
-    document.addEventListener('click', function(event) {
-      const searchContainer = document.getElementById('search-container');
-      const searchIcon = document.querySelector('.search-icon');
-
-      if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
-        searchContainer.classList.remove('open');
-      }
-    });
-
-    function addToCart() {
-      let cartCount = localStorage.getItem('cartCount') || 0;
-      cartCount++;
-      localStorage.setItem('cartCount', cartCount);
-      document.getElementById('cart-count').textContent = cartCount;
-      alert('Item added to cart');
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartCount = localStorage.getItem('cartCount') || 0;
-      document.getElementById('cart-count').textContent = cartCount;
-    });
-  </script>
 </body>
 </html>
