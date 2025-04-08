@@ -7,10 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #00bfff;
+      --primary: #00bfff; /* Blue color used in Add to Cart buttons */
       --secondary: #ffffff;
       --dark: #1a1a1a;
-      --light-blue-bg: #A3C9FF; /* Lighter blue background color */
+      --light-blue-bg: #A3C9FF;
     }
 
     * {
@@ -40,7 +40,7 @@
     }
 
     header {
-      background: transparent;
+      background: var(--primary); /* Update header background color */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -69,13 +69,13 @@
 
     nav ul li a {
       font-weight: bold;
-      color: var(--dark);
+      color: var(--secondary);
       text-decoration: none;
       transition: color 0.3s;
     }
 
     nav ul li a:hover {
-      color: var(--primary);
+      color: var(--dark);
     }
 
     .hero {
@@ -294,7 +294,7 @@
       if (currentScroll < 10) {
         header.style.backgroundColor = 'transparent';
       } else {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.backgroundColor = 'rgba(0, 191, 255, 0.95)'; /* Slightly transparent blue */
       }
 
       lastScroll = currentScroll;
