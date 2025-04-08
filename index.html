@@ -40,7 +40,7 @@
     }
 
     header {
-      background: var(--primary); /* Update header background color */
+      background: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -79,7 +79,6 @@
     }
 
     .hero {
-      background-color: var(--light-blue-bg); /* Lighter blue background */
       text-align: center;
       padding: 50px 0; /* Adjust padding for better visual */
       margin: 0;
@@ -96,6 +95,7 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
+      animation: fadeInOut 30s infinite;
     }
 
     .hero-content {
@@ -206,6 +206,24 @@
       font-size: 14px;
     }
 
+    @keyframes fadeInOut {
+      0% {
+        opacity: 1;
+      }
+      25% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     @media (max-width: 600px) {
       .hero-content h1 {
         font-size: 32px;
@@ -289,12 +307,6 @@
         header.style.top = '-100px';
       } else {
         header.style.top = '40px';
-      }
-
-      if (currentScroll < 10) {
-        header.style.backgroundColor = 'transparent';
-      } else {
-        header.style.backgroundColor = 'rgba(0, 191, 255, 0.95)'; /* Slightly transparent blue */
       }
 
       lastScroll = currentScroll;
