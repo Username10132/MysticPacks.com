@@ -10,7 +10,6 @@
       --primary: #00bfff;
       --secondary: #ffffff;
       --dark: #1a1a1a;
-      --header-height: 120px;
     }
 
     * {
@@ -23,49 +22,32 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--secondary);
       color: var(--dark);
-      padding-top: var(--header-height); /* Ensure content starts below header */
     }
 
     .announcement-bar {
       background-color: #0099cc;
       color: white;
       text-align: center;
-      padding: 10px 0;
+      padding: 5px 0; /* Reduced padding */
       position: sticky;
       top: 0;
       z-index: 1000;
-      height: var(--header-height); /* Fixed height */
-      box-sizing: border-box;
+      height: 40px; /* Fixed height */
       font-size: 16px;
       white-space: nowrap;
-    }
-
-    .announcement-bar span {
-      display: inline-block;
-      animation: scroll-text 10s linear infinite;
-    }
-
-    @keyframes scroll-text {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+      box-sizing: border-box;
     }
 
     header {
-      background-color: var(--secondary);
+      background: var(--secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
-      top: var(--header-height); /* Adjust header position */
-      z-index: 999;
-      height: var(--header-height); /* Fixed height */
-      box-sizing: border-box;
+      top: 40px;
+      z-index: 1000;
     }
 
     .logo-container img {
@@ -212,7 +194,7 @@
 <body>
 
   <div class="announcement-bar">
-    <span>Free Shipping on Orders Over $100 | Free Random Booster Pack on Orders Over $150 | Limited Time Only!</span>
+    <span id="announcementText">Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150 | New Items Weekly! | Check out our special offers!</span>
   </div>
 
   <header>
@@ -222,7 +204,7 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
+        <li><a href="shop.html">Shop</a></li> <!-- Corrected Link -->
         <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
@@ -231,7 +213,7 @@
   <section class="hero">
     <h1>Welcome to Mystic Packs</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a>
+    <a href="shop.html"><button class="btn">Shop Now</button></a> <!-- Fixed button link -->
   </section>
 
   <section class="featured-products">
@@ -250,6 +232,8 @@
         <div class="price">$17.99</div>
         <button class="btn">Add to Cart</button>
       </div>
+
+      <!-- Add more product cards here -->
     </div>
   </section>
 
@@ -257,5 +241,19 @@
     <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
   </footer>
 
+  <script>
+    const announcementText = document.getElementById('announcementText');
+    let announcementContent = announcementText.textContent;
+    
+    // Create an infinite scrolling effect for the announcement text
+    setInterval(() => {
+      announcementText.textContent = announcementContent;
+      announcementText.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        announcementText.style.transition = 'transform 20s linear';
+        announcementText.style.transform = 'translateX(-100%)';
+      }, 10);
+    }, 20000);
+  </script>
 </body>
 </html>
