@@ -10,6 +10,7 @@
       --primary: #00bfff;
       --secondary: #ffffff;
       --dark: #1a1a1a;
+      --header-height: 120px; /* Height for header and announcement combined */
     }
 
     * {
@@ -22,40 +23,9 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--secondary);
       color: var(--dark);
+      padding-top: var(--header-height); /* Create space below the header */
     }
 
-    /* Announcement Bar */
-    .announcement-bar {
-      background-color: #009fd1; /* Slightly darker blue */
-      color: white;
-      font-size: 16px;
-      padding: 10px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      width: 100%;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      border-bottom: 2px solid #008bb2;
-    }
-
-    .announcement-content {
-      display: inline-block;
-      animation: marquee 20s linear infinite;
-    }
-
-    @keyframes marquee {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    /* Header Styling */
     header {
       background: var(--secondary);
       display: flex;
@@ -63,10 +33,9 @@
       align-items: center;
       padding: 20px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: fixed;
-      top: 40px; /* Adjusted margin to avoid any color shift */
-      z-index: 999;
-      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo-container img {
@@ -91,6 +60,39 @@
 
     nav ul li a:hover {
       color: var(--primary);
+    }
+
+    .announcement-bar {
+      background-color: #0099cc;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 16px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1100;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .announcement-bar .announcements {
+      display: flex;
+      animation: scroll-announcements 20s linear infinite;
+    }
+
+    .announcement-bar .announcement {
+      margin-right: 50px;
+    }
+
+    @keyframes scroll-announcements {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
     }
 
     .hero {
@@ -212,14 +214,14 @@
 </head>
 <body>
 
-  <!-- Announcement Bar -->
   <div class="announcement-bar">
-    <div class="announcement-content">
-      Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150 | Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150
+    <div class="announcements">
+      <div class="announcement">Free Shipping on Orders Over $100</div>
+      <div class="announcement">Free Random Booster Pack on Orders Over $150</div>
+      <div class="announcement">Limited Time Offer: 20% Off All Tins</div>
     </div>
   </div>
 
-  <!-- Header -->
   <header>
     <div class="logo-container">
       <img src="A_logo_design_for_a_fictional_Pokémon_Trading_Card.png" alt="Mystic Packs Logo">
@@ -227,20 +229,18 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li> <!-- Corrected Link -->
+        <li><a href="shop.html">Shop</a></li>
         <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <h1>Welcome to Mystic Packs</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a> <!-- Fixed button link -->
+    <a href="shop.html"><button class="btn">Shop Now</button></a>
   </section>
 
-  <!-- Featured Products Section -->
   <section class="featured-products">
     <h2 class="section-title">Featured Packs</h2>
     <div class="product-grid">
@@ -258,11 +258,9 @@
         <button class="btn">Add to Cart</button>
       </div>
 
-      <!-- Add more product cards here -->
     </div>
   </section>
 
-  <!-- Footer Section -->
   <footer>
     <p>&copy; 2025 Mystic Packs. All rights reserved.</p>
   </footer>
