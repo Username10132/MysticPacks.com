@@ -10,7 +10,7 @@
       --primary: #00bfff;
       --secondary: #ffffff;
       --dark: #1a1a1a;
-      --header-height: 120px; /* Height for header and announcement combined */
+      --header-height: 120px;
     }
 
     * {
@@ -23,19 +23,49 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--secondary);
       color: var(--dark);
-      padding-top: var(--header-height); /* Create space below the header */
+      padding-top: var(--header-height); /* Ensure content starts below header */
+    }
+
+    .announcement-bar {
+      background-color: #0099cc;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-height); /* Fixed height */
+      box-sizing: border-box;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .announcement-bar span {
+      display: inline-block;
+      animation: scroll-text 10s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
     header {
-      background: var(--secondary);
+      background-color: var(--secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
-      top: 0;
-      z-index: 1000;
+      top: var(--header-height); /* Adjust header position */
+      z-index: 999;
+      height: var(--header-height); /* Fixed height */
+      box-sizing: border-box;
     }
 
     .logo-container img {
@@ -60,39 +90,6 @@
 
     nav ul li a:hover {
       color: var(--primary);
-    }
-
-    .announcement-bar {
-      background-color: #0099cc;
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 0;
-      font-size: 16px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1100;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .announcement-bar .announcements {
-      display: flex;
-      animation: scroll-announcements 20s linear infinite;
-    }
-
-    .announcement-bar .announcement {
-      margin-right: 50px;
-    }
-
-    @keyframes scroll-announcements {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(-100%);
-      }
     }
 
     .hero {
@@ -215,11 +212,7 @@
 <body>
 
   <div class="announcement-bar">
-    <div class="announcements">
-      <div class="announcement">Free Shipping on Orders Over $100</div>
-      <div class="announcement">Free Random Booster Pack on Orders Over $150</div>
-      <div class="announcement">Limited Time Offer: 20% Off All Tins</div>
-    </div>
+    <span>Free Shipping on Orders Over $100 | Free Random Booster Pack on Orders Over $150 | Limited Time Only!</span>
   </div>
 
   <header>
@@ -257,7 +250,6 @@
         <div class="price">$17.99</div>
         <button class="btn">Add to Cart</button>
       </div>
-
     </div>
   </section>
 
