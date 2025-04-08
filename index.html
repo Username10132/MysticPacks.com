@@ -92,29 +92,18 @@
 
     .hero {
       text-align: center;
-      padding: 0;
+      padding: 100px 0;
       margin: 0;
       height: 500px;
+      background-color: #00bfff; /* Blue background */
       position: relative;
       overflow: hidden;
-    }
-
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
       color: white;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     .hero-content h1 {
@@ -253,10 +242,6 @@
   </header>
 
   <section class="hero" id="heroSection">
-    <video autoplay muted loop playsinline>
-      <source src="https://cdn.coverr.co/videos/coverr-pokemon-booster-pack-display-9860/1080p.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
     <div class="hero-content">
       <h1>Welcome to Mystick Pax</h1>
       <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
