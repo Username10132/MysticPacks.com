@@ -36,19 +36,6 @@
       font-size: 16px;
       white-space: nowrap;
       box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .announcement-bar span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 30s linear infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
     }
 
     header {
@@ -71,12 +58,16 @@
     nav {
       display: flex;
       gap: 30px;
+      justify-content: center; /* Centers the navigation links */
+      width: 100%;
     }
 
     nav ul {
       display: flex;
       list-style: none;
       gap: 30px;
+      justify-content: center;
+      flex: 1; /* Allows the links to center */
     }
 
     nav ul li a {
@@ -90,20 +81,37 @@
       color: var(--primary);
     }
 
+    .right-nav {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end; /* Aligns right-side links (Account, Search, Cart) */
+    }
+
     .hero {
       text-align: center;
-      padding: 100px 0;
+      padding: 0;
       margin: 0;
       height: 500px;
-      background-color: #00bfff; /* Blue background */
       position: relative;
       overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
       color: white;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .hero-content h1 {
@@ -233,15 +241,21 @@
         <li><a href="#">Slabs</a></li>
         <li><a href="#">Accessories</a></li>
       </ul>
-      <ul>
-        <li><a href="#">Account</a></li>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Cart 🛒</a></li>
-      </ul>
+      <div class="right-nav">
+        <ul>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Cart 🛒</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <section class="hero" id="heroSection">
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-pokemon-booster-pack-display-9860/1080p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-content">
       <h1>Welcome to Mystick Pax</h1>
       <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
@@ -286,15 +300,9 @@
       } else {
         header.style.top = '40px';
       }
-
-      if (currentScroll < 10) {
-        header.style.backgroundColor = 'transparent';
-      } else {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-      }
-
       lastScroll = currentScroll;
     });
   </script>
+
 </body>
 </html>
