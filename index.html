@@ -40,7 +40,7 @@
     }
 
     header {
-      background: var(--blue-bg); /* Blue background for the header */
+      background: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,21 +59,17 @@
     nav {
       display: flex;
       gap: 30px;
-      justify-content: center; /* Centers the navigation links */
-      width: 100%;
     }
 
     nav ul {
       display: flex;
       list-style: none;
       gap: 30px;
-      justify-content: center;
-      flex: 1; /* Allows the links to center */
     }
 
     nav ul li a {
       font-weight: bold;
-      color: white; /* White text color for better visibility */
+      color: var(--dark);
       text-decoration: none;
       transition: color 0.3s;
     }
@@ -82,15 +78,10 @@
       color: var(--primary);
     }
 
-    .right-nav {
-      display: flex;
-      gap: 20px;
-      justify-content: flex-end; /* Aligns right-side links (Account, Search, Cart) */
-    }
-
     .hero {
+      background-color: var(--blue-bg); /* Add blue background here */
       text-align: center;
-      padding: 0;
+      padding: 50px 0; /* Adjust padding for better visual */
       margin: 0;
       height: 500px;
       position: relative;
@@ -242,13 +233,11 @@
         <li><a href="#">Slabs</a></li>
         <li><a href="#">Accessories</a></li>
       </ul>
-      <div class="right-nav">
-        <ul>
-          <li><a href="#">Account</a></li>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">Cart 🛒</a></li>
-        </ul>
-      </div>
+      <ul class="right-nav">
+        <li><a href="#">Account</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Cart 🛒</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -293,4 +282,24 @@
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
-     
+      const currentScroll = window.pageYOffset;
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+
+      if (currentScroll > lastScroll && currentScroll < heroBottom) {
+        header.style.top = '-100px';
+      } else {
+        header.style.top = '40px';
+      }
+
+      if (currentScroll < 10) {
+        header.style.backgroundColor = 'transparent';
+      } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+      }
+
+      lastScroll = currentScroll;
+    });
+  </script>
+
+</body>
+</html>
