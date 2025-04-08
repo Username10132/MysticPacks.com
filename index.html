@@ -36,6 +36,23 @@
       font-size: 16px;
       white-space: nowrap;
       box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .announcement-bar span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
     header {
@@ -79,24 +96,43 @@
 
     .hero {
       text-align: center;
-      padding: 120px 20px 80px;
-      background: linear-gradient(to bottom right, var(--primary), #e0f7ff);
-      color: white;
+      padding: 0;
+      margin: 0;
+      height: 500px;
       position: relative;
+      overflow: hidden;
     }
 
-    .hero h1 {
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-content h1 {
       font-size: 48px;
       margin-bottom: 20px;
     }
 
-    .hero p {
+    .hero-content p {
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto 30px;
     }
 
-    .hero .btn {
+    .hero-content .btn {
       background-color: white;
       color: var(--primary);
       padding: 12px 30px;
@@ -108,7 +144,7 @@
       transition: background-color 0.3s;
     }
 
-    .hero .btn:hover {
+    .hero-content .btn:hover {
       background-color: #f0f0f0;
     }
 
@@ -186,10 +222,10 @@
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
+      .hero-content h1 {
         font-size: 32px;
       }
-      .hero p {
+      .hero-content p {
         font-size: 16px;
       }
     }
@@ -198,7 +234,7 @@
 <body>
 
   <div class="announcement-bar">
-    <span id="announcementText">Free Shipping on orders over $100   |   Free Random Booster Pack on orders over $150   |   New Items Weekly!   |   Check out our special offers!</span>
+    <span>Free Shipping on orders over $100   |   Free Random Booster Pack on orders over $150   |   New Items Weekly!   |   Check out our special offers!</span>
   </div>
 
   <header id="mainHeader">
@@ -221,9 +257,15 @@
   </header>
 
   <section class="hero" id="heroSection">
-    <h1>Welcome to Mystick Pax</h1>
-    <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a>
+    <video autoplay muted loop>
+      <source src="https://cdn.pixabay.com/vimeo/123456789/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Welcome to Mystick Pax</h1>
+      <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
+      <a href="shop.html"><button class="btn">Shop Now</button></a>
+    </div>
   </section>
 
   <section class="featured-products">
@@ -250,18 +292,6 @@
   </footer>
 
   <script>
-    const announcementText = document.getElementById('announcementText');
-    let announcementContent = announcementText.textContent;
-
-    setInterval(() => {
-      announcementText.textContent = announcementContent;
-      announcementText.style.transform = 'translateX(100%)';
-      setTimeout(() => {
-        announcementText.style.transition = 'transform 20s linear';
-        announcementText.style.transform = 'translateX(-100%)';
-      }, 10);
-    }, 20000);
-
     const header = document.getElementById('mainHeader');
     const hero = document.getElementById('heroSection');
     let lastScroll = 0;
