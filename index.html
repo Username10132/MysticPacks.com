@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mystic Pax - Premium Pokémon Cards</title>
+  <title>Mystick Pax - Sleek Redesign</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
       --primary: #00bfff;
@@ -36,67 +35,54 @@
       height: 40px;
       font-size: 16px;
       white-space: nowrap;
-      overflow: hidden;
+      box-sizing: border-box;
     }
 
     header {
-      position: sticky;
-      top: 40px;
-      width: 100%;
-      z-index: 999;
-      background-color: transparent;
-      transition: background-color 0.3s ease;
-    }
-
-    .header-content {
+      background: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 10px 40px;
+      position: fixed;
+      top: 40px;
+      width: 100%;
+      z-index: 1000;
+      transition: top 0.3s ease, background-color 0.3s ease;
     }
 
     .logo-container img {
       height: 60px;
     }
 
-    .nav-links {
+    nav {
       display: flex;
-      justify-content: center;
       gap: 30px;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
       font-weight: bold;
+      color: var(--dark);
+      text-decoration: none;
       transition: color 0.3s;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .right-icons {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .right-icons a {
-      color: var(--dark);
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .right-icons a:hover {
+    nav ul li a:hover {
       color: var(--primary);
     }
 
     .hero {
       text-align: center;
-      padding: 80px 20px;
+      padding: 120px 20px 80px;
       background: linear-gradient(to bottom right, var(--primary), #e0f7ff);
       color: white;
+      position: relative;
     }
 
     .hero h1 {
@@ -212,30 +198,30 @@
 <body>
 
   <div class="announcement-bar">
-    <span id="announcementText">Free Shipping on orders over $100 | Free Random Booster Pack on orders over $150 | New Items Weekly! | Check out our special offers!</span>
+    <span id="announcementText">Free Shipping on orders over $100   |   Free Random Booster Pack on orders over $150   |   New Items Weekly!   |   Check out our special offers!</span>
   </div>
 
   <header id="mainHeader">
-    <div class="header-content">
-      <div class="logo-container">
-        <img src="/mnt/data/A_digital_vector_graphic_logo_for_Mystic_Pax_is_.png" alt="Mystic Pax Logo">
-      </div>
-      <div class="nav-links">
-        <a href="#">Booster Packs</a>
-        <a href="#">Tins</a>
-        <a href="#">Slabs</a>
-        <a href="#">Accessories</a>
-      </div>
-      <div class="right-icons">
-        <a href="#"><i class="fas fa-user"></i></a>
-        <a href="#"><i class="fas fa-search"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-      </div>
+    <div class="logo-container">
+      <img src="/mnt/data/A_digital_vector_graphic_logo_for_Mystic_Pax_is_.png" alt="Mystick Pax Logo">
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">Booster Packs</a></li>
+        <li><a href="#">Tins</a></li>
+        <li><a href="#">Slabs</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Account</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Cart 🛒</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to Mystic Pax</h1>
+  <section class="hero" id="heroSection">
+    <h1>Welcome to Mystick Pax</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
     <a href="shop.html"><button class="btn">Shop Now</button></a>
   </section>
@@ -260,7 +246,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Mystic Pax. All rights reserved.</p>
+    <p>&copy; 2025 Mystick Pax. All rights reserved.</p>
   </footer>
 
   <script>
@@ -276,15 +262,28 @@
       }, 10);
     }, 20000);
 
+    const header = document.getElementById('mainHeader');
+    const hero = document.getElementById('heroSection');
+    let lastScroll = 0;
+
     window.addEventListener('scroll', () => {
-      const header = document.getElementById('mainHeader');
-      if (window.scrollY > 100) {
-        header.style.backgroundColor = '#ffffff';
+      const currentScroll = window.pageYOffset;
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+
+      if (currentScroll > lastScroll && currentScroll < heroBottom) {
+        header.style.top = '-100px';
       } else {
-        header.style.backgroundColor = 'transparent';
+        header.style.top = '40px';
       }
+
+      if (currentScroll < 10) {
+        header.style.backgroundColor = 'transparent';
+      } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+      }
+
+      lastScroll = currentScroll;
     });
   </script>
-
 </body>
 </html>
