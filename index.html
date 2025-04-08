@@ -28,11 +28,11 @@
       background-color: #0099cc;
       color: white;
       text-align: center;
-      padding: 5px 0; /* Reduced padding */
+      padding: 5px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      height: 40px; /* Fixed height */
+      height: 40px;
       font-size: 16px;
       white-space: nowrap;
       box-sizing: border-box;
@@ -41,6 +41,7 @@
     header {
       background: var(--secondary);
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
@@ -56,11 +57,14 @@
 
     nav ul {
       display: flex;
+      flex-wrap: wrap;
       list-style: none;
+      justify-content: center;
+      margin-top: 10px;
     }
 
     nav ul li {
-      margin-left: 30px;
+      margin: 0 20px 10px 20px;
     }
 
     nav ul li a {
@@ -203,8 +207,12 @@
     </div>
     <nav>
       <ul>
+        <li><a href="#">Booster Packs</a></li>
+        <li><a href="#">Tins</a></li>
+        <li><a href="#">Slabs</a></li>
+        <li><a href="#">Accessories</a></li>
         <li><a href="#">Home</a></li>
-        <li><a href="shop.html">Shop</a></li> <!-- Corrected Link -->
+        <li><a href="shop.html">Shop</a></li>
         <li><a href="#">Cart 🛒</a></li>
       </ul>
     </nav>
@@ -213,7 +221,7 @@
   <section class="hero">
     <h1>Welcome to Mystic Packs</h1>
     <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
-    <a href="shop.html"><button class="btn">Shop Now</button></a> <!-- Fixed button link -->
+    <a href="shop.html"><button class="btn">Shop Now</button></a> 
   </section>
 
   <section class="featured-products">
@@ -232,7 +240,6 @@
         <div class="price">$17.99</div>
         <button class="btn">Add to Cart</button>
       </div>
-
       <!-- Add more product cards here -->
     </div>
   </section>
