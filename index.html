@@ -133,7 +133,7 @@
     /* Category Section */
     .category-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
       gap: 20px;
       padding: 40px;
       max-width: 1200px;
@@ -147,6 +147,7 @@
       padding: 30px 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
     }
 
     .category-box:hover {
@@ -155,8 +156,8 @@
     }
 
     .category-box img {
-      width: 80px;
-      height: 80px;
+      width: 100%;
+      height: auto;
       object-fit: contain;
       margin-bottom: 10px;
     }
@@ -244,20 +245,16 @@
       <h3>Booster Packs</h3>
     </div>
     <div class="category-box">
-      <img src="https://images.pokemontcg.io/swsh7/2.png" alt="Tins">
+      <img src="https://api.tcgpark.com/wp-content/uploads/2023/06/151-Mini-Tin-dragonite-1.jpg" alt="Tins">
       <h3>Tins</h3>
     </div>
     <div class="category-box">
-      <img src="https://images.pokemontcg.io/swsh6/3.png" alt="Graded Cards">
+      <img src="https://aura-print.com/media/wysiwyg/AP_Blog_First_Edition_Shadowless_Charizard_Banner_2.jpg" alt="Graded Cards">
       <h3>Graded Cards</h3>
     </div>
     <div class="category-box">
-      <img src="https://images.pokemontcg.io/swsh4/4.png" alt="Bundles">
-      <h3>Bundles</h3>
-    </div>
-    <div class="category-box">
-      <img src="https://images.pokemontcg.io/swsh3/5.png" alt="Specials">
-      <h3>Specials</h3>
+      <img src="https://static.wixstatic.com/media/a5ec13_40b2783b7a9846dd90a541553512c453~mv2.png/v1/fill/w_516,h_712,al_c,q_90/a5ec13_40b2783b7a9846dd90a541553512c453~mv2.png" alt="Singles">
+      <h3>Singles</h3>
     </div>
   </section>
 
