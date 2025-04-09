@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mystick Pax - Sleek Redesign</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #00bfff;
@@ -25,6 +24,7 @@
       color: var(--dark);
     }
 
+    /* Announcement Bar */
     .announcement-bar {
       background-color: #0099cc;
       color: white;
@@ -51,8 +51,9 @@
       100% { transform: translateX(-100%); }
     }
 
+    /* Header */
     header {
-      background: transparent;
+      background-color: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -90,22 +91,16 @@
       color: var(--primary);
     }
 
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 0;
-      margin: 0;
-      height: 600px;
-      position: relative;
-      overflow: hidden;
       background-color: #90D5FF;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: white;
-      top: 55%;
-      transform: translateY(-55%);
     }
 
     .hero-content h1 {
@@ -135,9 +130,10 @@
       background-color: #f0f0f0;
     }
 
-    .category-section {
+    /* Category Section */
+    .category-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
       padding: 40px;
       max-width: 1200px;
@@ -145,96 +141,60 @@
     }
 
     .category-box {
-      background-color: white;
+      background-color: #f9f9f9;
       border-radius: 10px;
-      padding: 30px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s, background-color 0.3s;
+      padding: 30px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .category-box:hover {
       transform: translateY(-5px);
-      background-color: #f0faff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .category-box i {
-      font-size: 30px;
+    .category-box img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
       margin-bottom: 10px;
-      color: var(--primary);
     }
 
     .category-box h3 {
+      font-size: 18px;
       margin-top: 10px;
-      font-size: 18px;
-      font-weight: bold;
     }
 
-    .featured-products {
-      padding: 60px 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
+    /* Newsletter */
+    .newsletter {
+      background-color: #eaf7ff;
+      padding: 40px 20px;
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 32px;
-      color: var(--dark);
     }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
+    .newsletter input[type=email] {
+      padding: 10px;
+      width: 250px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
-    .product-card {
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    .product-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 16px;
-      color: var(--primary);
-      margin-bottom: 15px;
-    }
-
-    .btn {
+    .newsletter button {
+      padding: 10px 20px;
       background-color: var(--primary);
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
     }
 
-    .btn:hover {
-      background-color: #009fd1;
+    .newsletter button:hover {
+      background-color: #00a0e6;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -242,19 +202,9 @@
       color: #666;
       font-size: 14px;
     }
-
-    @media (max-width: 600px) {
-      .hero-content h1 {
-        font-size: 32px;
-      }
-      .hero-content p {
-        font-size: 16px;
-      }
-    }
   </style>
 </head>
 <body>
-
   <div class="announcement-bar">
     <span>Free Shipping on orders over $100   |   Free Random Booster Pack on orders over $150   |   New Items Weekly!   |   Check out our special offers!</span>
   </div>
@@ -267,7 +217,7 @@
       <ul>
         <li><a href="#">Booster Packs</a></li>
         <li><a href="#">Tins</a></li>
-        <li><a href="#">Slabs</a></li>
+        <li><a href="#">Graded Cards</a></li>
         <li><a href="#">Accessories</a></li>
       </ul>
       <ul>
@@ -278,7 +228,8 @@
     </nav>
   </header>
 
-  <section class="hero" id="heroSection">
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="hero-content">
       <h1>Welcome to Mystick Pax</h1>
       <p>Your source for Pokémon booster packs, vintage cards, and rare tins. Discover your next pull today.</p>
@@ -286,60 +237,41 @@
     </div>
   </section>
 
-  <section class="category-section">
-    <div class="category-box"><i class="fas fa-box"></i><h3>Booster Packs</h3></div>
-    <div class="category-box"><i class="fas fa-cube"></i><h3>Tins</h3></div>
-    <div class="category-box"><i class="fas fa-gem"></i><h3>Graded Cards</h3></div>
-    <div class="category-box"><i class="fas fa-folder"></i><h3>Binders</h3></div>
-    <div class="category-box"><i class="fas fa-suitcase"></i><h3>Storage</h3></div>
-    <div class="category-box"><i class="fas fa-star"></i><h3>Exclusive</h3></div>
-  </section>
-
-  <section class="featured-products">
-    <h2 class="section-title">Featured Packs</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://www.pokebeach.com/news/2023/09/151-Booster-Pack-Image-English.png" alt="151 Booster Pack">
-        <div class="product-name">Scarlet & Violet 151</div>
-        <div class="price">$11.99</div>
-        <button class="btn">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="https://saplingsix.com/cdn/shop/files/PrismaticEvolutionsBoosterPack.png?v=1735569050" alt="Prismatic Evolutions">
-        <div class="product-name">Prismatic Evolutions</div>
-        <div class="price">$17.99</div>
-        <button class="btn">Add to Cart</button>
-      </div>
+  <!-- Category Boxes -->
+  <section class="category-grid">
+    <div class="category-box">
+      <img src="https://images.pokemontcg.io/swsh12/1.png" alt="Booster Packs">
+      <h3>Booster Packs</h3>
+    </div>
+    <div class="category-box">
+      <img src="https://images.pokemontcg.io/swsh7/2.png" alt="Tins">
+      <h3>Tins</h3>
+    </div>
+    <div class="category-box">
+      <img src="https://images.pokemontcg.io/swsh6/3.png" alt="Graded Cards">
+      <h3>Graded Cards</h3>
+    </div>
+    <div class="category-box">
+      <img src="https://images.pokemontcg.io/swsh4/4.png" alt="Bundles">
+      <h3>Bundles</h3>
+    </div>
+    <div class="category-box">
+      <img src="https://images.pokemontcg.io/swsh3/5.png" alt="Specials">
+      <h3>Specials</h3>
     </div>
   </section>
 
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <h2>Sign Up for Our Newsletter</h2>
+    <p>Be the first to know about new releases, sales, and giveaways!</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mystick Pax. All rights reserved.</p>
   </footer>
-
-  <script>
-    const header = document.getElementById('mainHeader');
-    const hero = document.getElementById('heroSection');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-
-      if (currentScroll > lastScroll && currentScroll < heroBottom) {
-        header.style.top = '-100px';
-      } else {
-        header.style.top = '40px';
-      }
-
-      if (currentScroll < 10) {
-        header.style.backgroundColor = 'transparent';
-      } else {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-      }
-
-      lastScroll = currentScroll;
-    });
-  </script>
 </body>
 </html>
